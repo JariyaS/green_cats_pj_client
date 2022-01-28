@@ -23,6 +23,12 @@ function RegisterForm() {
     } catch (err) {
       console.log(err);
     }
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (

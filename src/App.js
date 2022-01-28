@@ -1,5 +1,6 @@
 import "./App.css";
 import CartItem from "./components/CartItem";
+import SearchCatalogue from "./components/SearchCatalogue";
 import Catalogue from "./components/Catalogue";
 import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
@@ -9,9 +10,10 @@ function App() {
   return (
     <>
       <Header />
-      <LoginForm />
+      {/* <LoginForm /> */}
       {/* <RegisterForm /> */}
-      {/* <Catalogue /> */}
+      <SearchCatalogue />
+      <Catalogue />
       {/* <CartItem /> */}
     </>
   );

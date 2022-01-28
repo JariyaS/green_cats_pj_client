@@ -1,122 +1,24 @@
 import React from "react";
+import Card from "./Card";
+import { useState, useEffect } from "react";
+import axios from "../config/axios";
 
 function Catalogue() {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/products")
+      .then((res) => setProduct(res.data.product))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>Catalogue</h3>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          marginBottom: "30px",
-          marginTop: "30px",
-          marginRight: "10px",
-        }}
-      >
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
-        <div className="card" style={{ width: "20%" }}>
-          <img src="dog.jpg" alt="Toyota" />
-
-          <p>Brand: Toyota </p>
-          <p>Model: T35 </p>
-          <p>Buy price(THB): 3,500 </p>
-          <p>
-            <button>Add to Cart</button>
-          </p>
-        </div>
+      <div className="d-flex flex-wrap">
+        {product.map((item) => (
+          <Card product={item} />
+        ))}
       </div>
     </>
   );

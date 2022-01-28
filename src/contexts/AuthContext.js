@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../config/axios";
 import { clearToken, setToken, getToken } from "../services/localStorage";
 
 const AuthContext = createContext();
@@ -10,7 +10,7 @@ function AuthContextProvider({ children }) {
   useEffect(() => {
     if (getToken()) {
       axios
-        .get("http://localhost:8002/users/login")
+        .get("/users/login")
         .then((res) => setUser(res.data.user))
         .catch((err) => console.log(err));
     }
@@ -18,7 +18,7 @@ function AuthContextProvider({ children }) {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post("http://localhost:8002/users/login", {
+      const res = await axios.post("/users/login", {
         emailLogin: email,
         password: password,
       });

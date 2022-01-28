@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({ product }) {
+function CardWithoutPrice({ product }) {
   console.log(product);
   return (
     <div className="card" style={{ width: "20%" }}>
@@ -16,4 +16,4 @@ function Card({ product }) {
   );
 }
 
-export default Card;
+export default CardWithoutPrice;

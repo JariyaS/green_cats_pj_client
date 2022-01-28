@@ -10,7 +10,7 @@ function AuthContextProvider({ children }) {
   useEffect(() => {
     if (getToken()) {
       axios
-        .get("/users/login")
+        .get("/users/me")
         .then((res) => setUser(res.data.user))
         .catch((err) => console.log(err));
     }

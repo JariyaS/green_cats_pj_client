@@ -1,10 +1,10 @@
 import React from "react";
-import CardWithoutPrice from "./CardWithoutPrice";
 import CardWithPrice from "./CardWithPrice";
+
 import { useState, useEffect } from "react";
 import axios from "../config/axios";
 
-function Catalogue() {
+function CatalogueWp() {
   // initial state = []
   const [product, setProduct] = useState([]);
   // ใช้ useEffect เพื่อให้ทำงานเมื่อมีการส่งคำสั่งร้องขอข้อมูลไปที่ backend ในครั้งแรกครั้งเดียว
@@ -23,16 +23,11 @@ function Catalogue() {
     <>
       <div className="d-flex flex-wrap">
         {product.map((item) => (
-          <CardWithoutPrice product={item} />
-        ))}
-      </div>
-      {/* <div className="d-flex flex-wrap">
-        {product.map((item) => (
           <CardWithPrice product={item} />
         ))}
-      </div> */}
+      </div>
     </>
   );
 }
 
-export default Catalogue;
+export default CatalogueWp;

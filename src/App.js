@@ -1,20 +1,11 @@
 import "./App.css";
-import CartItem from "./components/CartItem";
-import SearchCatalogue from "./components/SearchCatalogue";
-import Catalogue from "./components/Catalogue";
-import Header from "./components/Header";
-import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
+
+import RouteConfig from "./routes/RouteConfig";
 
 function App() {
   return (
     <>
-      <Header />
-      {/* <LoginForm /> */}
-      {/* <RegisterForm /> */}
-      <SearchCatalogue />
-      <Catalogue />
-      {/* <CartItem /> */}
+      <RouteConfig />
     </>
   );
 }

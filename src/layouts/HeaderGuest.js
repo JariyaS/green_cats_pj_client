@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 
 import React from "react";
 
-function Header() {
+function HeaderGuest() {
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -22,24 +21,22 @@ function Header() {
             marginRight: "10%",
           }}
         >
-          <a href="./home" style={{ padding: "10px", textDecoration: "none" }}>
+          <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
             Home
-          </a>
-          <a
-            href="./catalogue"
+          </Link>
+          <Link
+            to="/catalogue-np"
             style={{ padding: "10px", textDecoration: "none" }}
           >
             Catalogue
-          </a>
-          <a href="./cart" style={{ padding: "10px", textDecoration: "none" }}>
-            Cart
-          </a>
-          <a
-            href="./contact"
+          </Link>
+
+          <Link
+            to="/contact"
             style={{ padding: "10px", textDecoration: "none" }}
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
       <hr width="100%;" color="blue" size="5"></hr>
@@ -52,4 +49,4 @@ function Header() {
     </div>
   );
 }
-export default Header;
+export default HeaderGuest;

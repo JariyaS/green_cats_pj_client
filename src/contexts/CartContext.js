@@ -17,6 +17,7 @@ function CartContextProvider({ children }) {
   }, []);
 
   const [cartItems, setCartItems] = useState([]);
+
   const onAdd = (product) => {
     const idx = cartItems.findIndex((x) => x.id === product.id); //เช็คว่ามี ID นั้นๆหรือยัง
     const newCart = [...cartItems];
@@ -30,8 +31,40 @@ function CartContextProvider({ children }) {
     setCartItems(newCart);
   };
 
+  const onRemove = (product) => {
+    // console.log(product)
+    const exist = cartItems.find((x) => x.id === product.id);
+    const newCart = [...cartItems];
+    if (exist.qty === 1) {
+      // let newCart = cartItems.filter(x => x.id !== product.id))
+      // setCartItems(newCart)
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id == product.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
+  const [bid, setBid] = useState(0);
+  const onBid = (product) => {
+    const idx = cartItems.findIndex((x) => x.id === product.id); //เช็คว่ามี ID นั้นๆหรือยัง
+    const newCart = [...cartItems];
+    if (idx !== -1) {
+      newCart[idx] = { ...newCart[idx], bidPrice: 0 };
+      // } else {
+      // newCart.push({ ...product, qty: 1 });
+      // console.log(newCart);
+    }
+
+    setBid(newCart);
+  };
+
   return (
-    <CartContext.Provider value={{ product, cartItems, onAdd }}>
+    <CartContext.Provider
+      value={{ product, cartItems, onAdd, onRemove, onBid }}
+    >
       {children}
     </CartContext.Provider>
   );

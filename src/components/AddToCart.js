@@ -21,10 +21,6 @@ function AddToCart({ product, onAdd }) {
           <button onClick={handleClickAdd} className="btn btn-success">
             Add to Cart
           </button>
-          {/* <div>
-          <button>+</button>
-          <button>-</button> */}
-          {/* </div> */}
         </p>
       </div>
       {/* <CartItem product={product} /> */}

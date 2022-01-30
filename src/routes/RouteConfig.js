@@ -17,9 +17,11 @@ import ApproveList from "../components/ApproveList";
 import Report from "../components/Report";
 import Quotation from "../components/Quotation";
 import QuotationDetails from "../components/QuotationDetails";
+import { CartContext } from "../contexts/CartContext";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
+  const { product, cartItems } = useContext(CartContext);
   return (
     <Routes>
       {!user && (

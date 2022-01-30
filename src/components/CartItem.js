@@ -1,42 +1,27 @@
 import React from "react";
+import HeaderUser from "../layouts/HeaderUser";
+import CardWithPrice from "./CardWithPrice";
+import CatalogueWithPrice from "../pages/CatalogueWithPrice";
+import AddToCart from "./AddToCart";
+import CardForCartItem from "./CardForCartItem";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
+
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function CartItem() {
+  const { cartItems, onAdd } = useContext(CartContext);
+  console.log(cartItems);
+
   return (
-    <aside>
-      <div>Brand</div>
-      <div> Model </div>
-      <div> Q'ty </div>
-      <div> Amount </div>
-      <div>
-        <div></div>
-        <div>
-          <button>+</button>
-          <button>-</button>
-        </div>
-        <div></div>
+    <>
+      <div className="d-flex flex-wrap">
+        {cartItems.map((item) => (
+          <CardForCartItem product={item} key={item.id} onAdd={onAdd} />
+        ))}
       </div>
-
-      <hr />
-
-      <div className="row">
-        <div className="col-2">Summary Order</div>
-      </div>
-      <div className="row">
-        <div className="col-2">Q'ty(pc.):</div>
-        <div className="col-1 text-right"></div>
-      </div>
-      <div className="row">
-        <div className="col-2">Total Amount(THB)</div>
-        <div className="col-1 text-right"></div>
-      </div>
-      <button
-        type="submit"
-        className="btn btn-success"
-        style={{ width: "5%", marginTop: "30px" }}
-      >
-        Next
-      </button>
-    </aside>
+    </>
   );
 }
 

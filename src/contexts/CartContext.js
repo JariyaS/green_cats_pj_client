@@ -1,38 +1,41 @@
-// import { createContext, useEffect, useState } from "react";
-// import axios from "../config/axios";
-// import { clearToken, setToken, getToken } from "../services/localStorage";
+import { createContext, useEffect, useState } from "react";
+import axios from "../config/axios";
+import { clearToken, setToken, getToken } from "../services/localStorage";
 
-// const CartContext = createContext();
+const CartContext = createContext();
 
-// function CartContextProvider({ children, product }) {
-//   const [user, setUser] = useState(null);
-//   useEffect(() => {
-//     if (getToken()) {
-//       axios
-//         .get("/users/cart")
-//         .then((res) => setUser(res.data.product))
-//         .catch((err) => console.log(err));
-//     }
-//   }, []);
-//   // const cartItem = async (productId, productName, productPrice) => {
-//   //   try {
-//   //     const res = await axios.post("/products", {
-//   //       productId: productId,
-//   //       productName: productName,
-//   //       productPrice: productPrice,
-//   //     });
-//   //     console.log(res.data);
+function CartContextProvider({ children }) {
+  const [product, setProduct] = useState([]);
+  // ใช้ useEffect เพื่อให้ทำงานเมื่อมีการส่งคำสั่งร้องขอข้อมูลไปที่ backend ในครั้งแรกครั้งเดียว
+  // ขอข้อมูลผ่านทาง method get path : /product  โดยอัพเดท state (setState)
+  // โดยให้ backend ส่งกลับมาในรูปบบ res.data.product
+  useEffect(() => {
+    axios
+      .get("/products")
+      .then((res) => setProduct(res.data.product))
+      .catch((err) => console.log(err));
+  }, []);
 
-//   //     setCart(res.data.product);
-//   //   } catch (err) {
-//   //     console.log(err.message);
-//   //   }
-//   // };
+  const [cartItems, setCartItems] = useState([]);
+  const onAdd = (product) => {
+    const idx = cartItems.findIndex((x) => x.id === product.id); //เช็คว่ามี ID นั้นๆหรือยัง
+    const newCart = [...cartItems];
+    if (idx !== -1) {
+      newCart[idx] = { ...newCart[idx], qty: newCart[idx].qty + 1 };
+    } else {
+      newCart.push({ ...product, qty: 1 });
+      console.log(newCart);
+    }
 
-//   return (
-//     <CartContext.Provider value={{ product }}>{children}</CartContext.Provider>
-//   );
-// }
+    setCartItems(newCart);
+  };
 
-// export default CartContextProvider;
-// export { CartContext };
+  return (
+    <CartContext.Provider value={{ product, cartItems, onAdd }}>
+      {children}
+    </CartContext.Provider>
+  );
+}
+
+export default CartContextProvider;
+export { CartContext };

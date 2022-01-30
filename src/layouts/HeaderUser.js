@@ -31,21 +31,6 @@ function HeaderUser() {
             marginRight: "10%",
           }}
         >
-          <div style={{ display: "block", padding: 30 }}>
-            <div>
-              <Badge color="secondary" badgeContent={"0"}>
-                <ShoppingCartIcon />
-              </Badge>
-              {/* <ButtonGroup>
-            <Button onClick={handleClickAdd}>
-              <RemoveIcon fontSize="small" />
-            </Button>
-            <Button onClick={handleClickAdd}>
-              <AddIcon fontSize="small" />
-            </Button>
-          </ButtonGroup> */}
-            </div>
-          </div>
           <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
             Home
           </Link>
@@ -67,11 +52,8 @@ function HeaderUser() {
           <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
             <span onClick={() => logout()}>signout</span>
           </Link>
-          <Link
-            to="/quotation"
-            style={{ padding: "10px", textDecoration: "none" }}
-          >
-            <span>submit</span>
+          <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
+            <span>Next</span>
           </Link>
         </div>
       </div>

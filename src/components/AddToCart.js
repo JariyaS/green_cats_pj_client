@@ -4,6 +4,8 @@ import HeaderUser from "../layouts/HeaderUser";
 import CartItem from "./CartItem";
 import CardWithPrice from "./CardWithPrice";
 import CatalogueWp from "./CatalogueWp";
+import CardForCartItem from "./CardForCartItem";
+import { CartContext } from "../contexts/CartContext";
 
 function AddToCart({ product, onAdd }) {
   //   console.log(product);
@@ -13,17 +15,20 @@ function AddToCart({ product, onAdd }) {
   };
 
   return (
-    <div>
-      <p>
-        <button onClick={handleClickAdd} className="btn btn-success">
-          Add to Cart
-        </button>
-        {/* <div>
+    <>
+      <div>
+        <p>
+          <button onClick={handleClickAdd} className="btn btn-success">
+            Add to Cart
+          </button>
+          {/* <div>
           <button>+</button>
           <button>-</button> */}
-        {/* </div> */}
-      </p>
-    </div>
+          {/* </div> */}
+        </p>
+      </div>
+      {/* <CartItem product={product} /> */}
+    </>
   );
 }
 

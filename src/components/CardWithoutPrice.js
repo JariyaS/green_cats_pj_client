@@ -8,10 +8,6 @@ function CardWithoutPrice({ product }) {
 
       <p>BRAND: {product.Brand.brand_name}</p>
       <p>Model: {product.product_name} </p>
-
-      <p>
-        <button>Add to Cart</button>
-      </p>
     </div>
   );
 }

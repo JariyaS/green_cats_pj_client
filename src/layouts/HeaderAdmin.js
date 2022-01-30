@@ -1,8 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 import React from "react";
+import ApproveList from "../components/ApproveList";
+import Report from "../components/Report";
 
 function HeaderAdmin() {
+  const { logout } = useContext(AuthContext);
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -21,15 +26,21 @@ function HeaderAdmin() {
             marginRight: "10%",
           }}
         >
-          <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
-            Approved List |
-          </Link>
-          <Link
-            to="/catalogue"
-            style={{ padding: "10px", textDecoration: "none" }}
-          >
-            Report
-          </Link>
+          <div className="d-flex">
+            <Link
+              to="/approvelist"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <ApproveList />
+            </Link>
+            <Link
+              to="/report"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <Report />
+            </Link>
+          </div>
+
           <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
             Cart
           </Link>
@@ -50,6 +61,9 @@ function HeaderAdmin() {
             style={{ padding: "10px", textDecoration: "none" }}
           >
             Contact
+          </Link>
+          <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
+            <span onClick={() => logout()}>signout</span>
           </Link>
         </div>
       </div>

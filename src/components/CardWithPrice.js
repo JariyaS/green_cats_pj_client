@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import CartContextProvider from "../contexts/CartContext";
+import { CartContext } from "../contexts/CartContext";
+import AddToCart from "./AddToCart";
+import CatalogueWp from "./CatalogueWp";
 
-function CardWithPrice({ product }) {
-  console.log(product);
+function CardWithPrice({ product, onAdd }) {
   return (
     <div className="card" style={{ width: "20%" }}>
       <img src={product.product_img} alt="" />
@@ -10,9 +13,7 @@ function CardWithPrice({ product }) {
       <p>Model: {product.product_name} </p>
       <p>Offer Price : {product.product_price} THB</p>
 
-      <p>
-        <button>Add to Cart</button>
-      </p>
+      <AddToCart product={product} key={product.id} onAdd={onAdd} />
     </div>
   );
 }

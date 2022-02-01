@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Badge from "@material-ui/core/Badge";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Button from "@material-ui/core/Button";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
+
+import { FaSignOutAlt } from "react-icons/fa";
+import {
+  BsFillHouseFill,
+  BsFillCartFill,
+  BsWhatsapp,
+  BsShop,
+} from "react-icons/bs";
 
 import React from "react";
 
@@ -32,28 +34,27 @@ function HeaderUser() {
           }}
         >
           <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
-            Home
+            <BsFillHouseFill />
           </Link>
           <Link
             to="/catalogue-wp"
             style={{ padding: "10px", textDecoration: "none" }}
           >
-            Catalogue
+            <BsShop />
           </Link>
           <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
-            Cart
+            <BsFillCartFill />
           </Link>
           <Link
             to="/contact"
             style={{ padding: "10px", textDecoration: "none" }}
           >
-            Contact
+            <BsWhatsapp />
           </Link>
           <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
-            <span onClick={() => logout()}>signout</span>
-          </Link>
-          <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
-            <span>Next</span>
+            <span onClick={() => logout()}>
+              <FaSignOutAlt />
+            </span>
           </Link>
         </div>
       </div>

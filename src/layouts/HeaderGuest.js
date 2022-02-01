@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { BsFillHouseFill, BsWhatsapp, BsShop } from "react-icons/bs";
 
 import React from "react";
 
@@ -22,20 +23,20 @@ function HeaderGuest() {
           }}
         >
           <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
-            Home
+            <BsFillHouseFill />
           </Link>
           <Link
             to="/catalogue-np"
             style={{ padding: "10px", textDecoration: "none" }}
           >
-            Catalogue
+            <BsShop />
           </Link>
 
           <Link
             to="/contact"
             style={{ padding: "10px", textDecoration: "none" }}
           >
-            Contact
+            <BsWhatsapp />
           </Link>
         </div>
       </div>

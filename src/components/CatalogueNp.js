@@ -20,13 +20,13 @@ function CatalogueNp() {
   // return ค่าโดยการ map ทุก item/component ของ product ออกมา โดยส่งค่า value item ผ่านทาง props ที่ชื่อ product
 
   return (
-    <>
+    <div className="p-3">
       <div className="d-flex flex-wrap">
         {product.map((item) => (
           <CardWithoutPrice product={item} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

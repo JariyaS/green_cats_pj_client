@@ -1,6 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { FaSignOutAlt } from "react-icons/fa";
+
+import {
+  BsFillHouseFill,
+  BsFillCartFill,
+  BsWhatsapp,
+  BsShop,
+} from "react-icons/bs";
 
 import React from "react";
 import ApproveList from "../components/ApproveList";
@@ -41,29 +49,28 @@ function HeaderAdmin() {
             </Link>
           </div>
 
-          <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
-            Cart
-          </Link>
           <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
-            Home
+            <BsFillHouseFill />
           </Link>
           <Link
             to="/catalogue-wp"
             style={{ padding: "10px", textDecoration: "none" }}
           >
-            Catalogue
+            <BsShop />
           </Link>
           <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
-            Cart
+            <BsFillCartFill />
           </Link>
           <Link
             to="/contact"
             style={{ padding: "10px", textDecoration: "none" }}
           >
-            Contact
+            <BsWhatsapp />
           </Link>
           <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
-            <span onClick={() => logout()}>signout</span>
+            <span onClick={() => logout()}>
+              <FaSignOutAlt />
+            </span>
           </Link>
         </div>
       </div>

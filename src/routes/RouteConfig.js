@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import HeaderAdmin from "../layouts/HeaderAdmin";
+// import HeaderAdmin from "../layouts/HeaderAdmin";
 
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
@@ -21,7 +21,7 @@ import { CartContext } from "../contexts/CartContext";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
-  const { product, cartItems } = useContext(CartContext);
+  // const { product, cartItems } = useContext(CartContext);
   return (
     <Routes>
       {!user && (

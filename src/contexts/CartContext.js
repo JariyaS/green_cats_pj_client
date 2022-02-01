@@ -47,28 +47,67 @@ function CartContextProvider({ children }) {
       );
     }
   };
-  const [bid, setBid] = useState(0);
-  const onBid = (product) => {
-    const idx = cartItems.findIndex((x) => x.id === product.id); //เช็คว่ามี ID นั้นๆหรือยัง
-    const newCart = [...cartItems];
-    if (idx !== -1) {
-      newCart[idx] = { ...newCart[idx], bidPrice: 0 };
-      // } else {
-      // newCart.push({ ...product, qty: 1 });
-      // console.log(newCart);
-    }
 
-    setBid(newCart);
+  const [bid, setBid] = useState(0);
+  // console.log(bid);
+  // console.log(cartItems);
+  let total = [];
+  let totalQty = 0;
+  let totalOffer = [];
+
+  console.log(cartItems);
+  const reCalculate = (cartItems) => {
+    for (let item of cartItems) {
+      let amount = +item.qty * +item.product_price;
+      console.log(amount);
+      total.push(amount);
+      console.log(total);
+      totalOffer = total.reduce((acc, result) => acc + result, 0).toFixed(2);
+
+      totalQty += item.qty;
+
+      // totalBid = bid * item.qty;
+      // console.log(item.bid);
+      // console.log(item.qty);
+      // }
+      // for (let item of cartItems) {
+      //   qty = +item.qty * +bid;
+      //   console.log(item.qty);
+      //   total.push(qty);
+      //   // console.log(total);
+      //   totalBid = total.reduce((acc, result) => acc + result, 0);
+
+      //   totalQty += item.qty;
+
+      //   totalBid = bid * item.qty;
+      //   // console.log(item.bid);
+      //   // console.log(item.qty);
+      // }
+    }
+    return { totalQty, totalOffer };
   };
+
+  reCalculate(cartItems);
+
+  console.log(totalQty);
 
   return (
     <CartContext.Provider
-      value={{ product, cartItems, onAdd, onRemove, onBid }}
+      value={{
+        product,
+        cartItems,
+        onAdd,
+        onRemove,
+        bid,
+        setBid,
+        reCalculate,
+        totalQty,
+        totalOffer,
+      }}
     >
       {children}
     </CartContext.Provider>
   );
 }
-
 export default CartContextProvider;
 export { CartContext };

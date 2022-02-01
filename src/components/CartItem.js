@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import HeaderUser from "../layouts/HeaderUser";
 import CardWithPrice from "./CardWithPrice";
 import CatalogueWithPrice from "../pages/CatalogueWithPrice";
@@ -8,44 +9,46 @@ import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 function CartItem() {
-  const { cartItems, onAdd } = useContext(CartContext);
-  // console.log(cartItems[0]);
-  let total = 0;
-  let totalQty = 0;
-  let totalBid = 0;
-  for (let item of cartItems) {
-    total += item.product_price * item.qty;
-    totalQty += item.qty;
-    totalBid += item.bidPrice * item.qty;
-  }
-  // let itemsPrices = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+  const { cartItems, onAdd, setBid, totalQty, totalOffer, reCalculate } =
+    useContext(CartContext);
+  const navigate = useNavigate();
 
   return (
-    <>
-      <div className="d-flex flex-wrap" style={{ width: "95%" }}>
+    <div className="p-3">
+      <div
+        className="d-flex flex-wrap"
+        style={{ width: "95%", justifyContent: "space-between" }}
+      >
         <div className="card " style={{ width: "50%" }}>
-          <h4>Toal Q'ty:{totalQty} </h4>
-          <h4>Toal Amount:{total}</h4>
+          <h4>Total Q'ty:{totalQty} </h4>
+          <h4>Total Amount:{totalOffer}</h4>
         </div>
-        <div className="card " style={{ width: "50%" }}>
-          <h4>Toal Q'ty:{totalQty} </h4>
-          <h4>Toal Amount:{totalBid} </h4>
+      </div>
+      <div></div>
+      <div>
+        <div className="d-flex flex-wrap">
+          {cartItems.map((item) => (
+            <CardForCartItem
+              product={item}
+              key={item.id}
+              onAdd={onAdd}
+              bid={item.bid}
+              setBid={setBid}
+            />
+          ))}
         </div>
       </div>
 
-      <div className="d-flex flex-wrap">
-        {cartItems.map((item) => (
-          <CardForCartItem product={item} key={item.id} onAdd={onAdd} />
-        ))}
-      </div>
-
-      <button className="d-flex btn btn-primary " type="submit">
+      <button
+        className="d-flex btn btn-primary "
+        type="submit"
+        onClick={() => navigate("/quotation")}
+      >
         Submit
       </button>
-    </>
+    </div>
   );
 }
 

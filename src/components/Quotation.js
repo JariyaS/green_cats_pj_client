@@ -1,15 +1,14 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+// import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
-import { FaProductHunt } from "react-icons/fa";
+// import { FaProductHunt } from "react-icons/fa";
 
 function Quotation() {
   const { user } = useContext(AuthContext);
-  const { cartItems, totalQty, totalOffer, reCalculate } =
-    useContext(CartContext);
+  const { totalQty, totalOffer } = useContext(CartContext);
   // console.log(cartItems);
   // console.log(user);
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ function Quotation() {
       <h4>Last Name:{user.lastName}</h4>
       <h4>Phone No.:{user.phoneNumber}</h4>
       <h4>Quantity(PC.):{totalQty}</h4>
-      <h4>Total Amount(THB):{totalOffer}</h4>
+      <h4>Total Amount(USD):{totalOffer}</h4>
 
       <p>
         Please send products to us within 5 days after submit this form,

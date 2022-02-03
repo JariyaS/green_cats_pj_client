@@ -19,7 +19,7 @@ function AddToCart({ product }) {
       <div>
         <p>
           <button onClick={handleClickAdd} className="btn btn-success">
-            Add to Cart
+            Add to Sell
           </button>
         </p>
       </div>

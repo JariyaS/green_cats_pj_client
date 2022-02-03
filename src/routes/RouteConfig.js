@@ -10,12 +10,14 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 import CatalogueWithoutPrice from "../pages/CatalogueWithoutPrice";
+import CatalogueWithPriceAdmin from "../pages/CatalogueWithPriceAdmin";
 import CatalogueWithPrice from "../pages/CatalogueWithPrice";
 import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
-import ApproveList from "../components/ApproveList";
+
 import Report from "../components/Report";
 import Quotation from "../components/Quotation";
+import QuotationList from "../components/QuotationList";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
@@ -33,11 +35,11 @@ function RouteConfig() {
       )}
       {user?.userRole === "admin" && (
         <Route path="/" element={<AdminLayout />}>
-          <Route path="" element={<CatalogueWithPrice />} />
+          <Route path="" element={<CatalogueWithPriceAdmin />} />
 
           <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="approvelist" element={<ApproveList />} />
+          <Route path="quotationlist" element={<QuotationList />} />
           <Route path="report" element={<Report />} />
 
           <Route path="*" element={<Navigate to="/" />} />

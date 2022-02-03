@@ -11,8 +11,9 @@ import {
 } from "react-icons/bs";
 
 import React from "react";
-import ApproveList from "../components/ApproveList";
+
 import Report from "../components/Report";
+import QuotationList from "../components/QuotationList";
 
 function HeaderAdmin() {
   const { logout } = useContext(AuthContext);
@@ -36,10 +37,10 @@ function HeaderAdmin() {
         >
           <div className="d-flex">
             <Link
-              to="/approvelist"
+              to="/quotationlist"
               style={{ padding: "10px", textDecoration: "none" }}
             >
-              <ApproveList />
+              <QuotationList />
             </Link>
             <Link
               to="/report"
@@ -48,30 +49,37 @@ function HeaderAdmin() {
               <Report />
             </Link>
           </div>
-
-          <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
-            <BsFillHouseFill />
-          </Link>
-          <Link
-            to="/catalogue-wp"
-            style={{ padding: "10px", textDecoration: "none" }}
-          >
-            <BsShop />
-          </Link>
-          <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
-            <BsFillCartFill />
-          </Link>
-          <Link
-            to="/contact"
-            style={{ padding: "10px", textDecoration: "none" }}
-          >
-            <BsWhatsapp />
-          </Link>
-          <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
-            <span onClick={() => logout()}>
-              <FaSignOutAlt />
-            </span>
-          </Link>
+          <div>
+            {/* <Link
+              to="/home"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <BsFillHouseFill />
+            </Link> */}
+            <Link
+              to="/catalogue-wp"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <BsShop />
+            </Link>
+            {/* <Link
+              to="/cart"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <BsFillCartFill />
+            </Link> */}
+            {/* <Link
+              to="/contact"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <BsWhatsapp />
+            </Link> */}
+            <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
+              <span onClick={() => logout()}>
+                <FaSignOutAlt />
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
       <hr width="100%;" color="blue" size="5"></hr>

@@ -7,6 +7,7 @@ import { useContext } from "react";
 
 import { useState, useEffect } from "react";
 import axios from "../config/axios";
+import CardWithPriceAdmin from "./CardWithPriceAdmin";
 
 function CatalogueWp() {
   const { onAdd, product } = useContext(CartContext);
@@ -15,7 +16,7 @@ function CatalogueWp() {
     <div className="p-3">
       <div className="d-flex flex-wrap">
         {product.map((item) => (
-          <CardWithPrice product={item} key={item.id} onAdd={onAdd} />
+          <CardWithPriceAdmin product={item} key={item.id} onAdd={onAdd} />
         ))}
       </div>
     </div>

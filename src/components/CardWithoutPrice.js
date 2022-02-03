@@ -4,10 +4,10 @@ function CardWithoutPrice({ product }) {
   console.log(product);
   return (
     <div className="card" style={{ width: "20%" }}>
-      <img src={product.product_img} alt="" />
+      <img src={product.productImg} alt="" />
 
-      <p>BRAND: {product.Brand.brand_name}</p>
-      <p>Model: {product.product_name} </p>
+      <p>BRAND: {product.brand}</p>
+      <p>Model: {product.productName} </p>
     </div>
   );
 }

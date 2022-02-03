@@ -11,8 +11,10 @@ function CartContextProvider({ children }) {
   // โดยให้ backend ส่งกลับมาในรูปบบ res.data.product
   useEffect(() => {
     axios
-      .get("/products")
-      .then((res) => setProduct(res.data.product))
+      .get("/products/withprice")
+      .then((res) => {
+        setProduct(res.data.product);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -58,31 +60,13 @@ function CartContextProvider({ children }) {
   console.log(cartItems);
   const reCalculate = (cartItems) => {
     for (let item of cartItems) {
-      let amount = +item.qty * +item.product_price;
+      let amount = +item.qty * +item.price;
       console.log(amount);
       total.push(amount);
       console.log(total);
       totalOffer = total.reduce((acc, result) => acc + result, 0).toFixed(2);
 
       totalQty += item.qty;
-
-      // totalBid = bid * item.qty;
-      // console.log(item.bid);
-      // console.log(item.qty);
-      // }
-      // for (let item of cartItems) {
-      //   qty = +item.qty * +bid;
-      //   console.log(item.qty);
-      //   total.push(qty);
-      //   // console.log(total);
-      //   totalBid = total.reduce((acc, result) => acc + result, 0);
-
-      //   totalQty += item.qty;
-
-      //   totalBid = bid * item.qty;
-      //   // console.log(item.bid);
-      //   // console.log(item.qty);
-      // }
     }
     return { totalQty, totalOffer };
   };

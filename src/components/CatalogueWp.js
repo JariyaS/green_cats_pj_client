@@ -9,18 +9,19 @@ import { useState, useEffect } from "react";
 import axios from "../config/axios";
 
 function CatalogueWp() {
-  const { onAdd } = useContext(CartContext);
+  const { onAdd, product } = useContext(CartContext);
   // initial state = []
-  const [product, setProduct] = useState([]);
+  // const [product, setProduct] = useState([]);
+
   // ใช้ useEffect เพื่อให้ทำงานเมื่อมีการส่งคำสั่งร้องขอข้อมูลไปที่ backend ในครั้งแรกครั้งเดียว
   // ขอข้อมูลผ่านทาง method get path : /product  โดยอัพเดท state (setState)
   // โดยให้ backend ส่งกลับมาในรูปบบ res.data.product
-  useEffect(() => {
-    axios
-      .get("/products")
-      .then((res) => setProduct(res.data.product))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("/products/")
+  //     .then((res) => setProduct(res.data.product))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <div className="p-3">

@@ -1,11 +1,24 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { useEffect } from "react";
+import axios from "../config/axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [apiPrice, setApiPrice] = useState({});
+  const navigate = useNavigate();
+  // const metalApi = "https://www.metals-api.com/api/latest";
+  const metalApi = "/metalprices";
 
   const { login } = useContext(AuthContext);
+
+  // function expo(x, f) {
+  //   return String(Number.parseFloat(x).toExponential(f))
+  //     .split("e")
+  //     .join(" x 10 **");
+  // }
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
@@ -13,6 +26,31 @@ function LoginForm() {
     setEmail("");
     setPassword("");
   };
+
+  useEffect(() => {
+    axios
+      // .get(metalApi, {
+      //   params: {
+      //     access_key:
+      //       "f4q75ozb2t3l78o673fdmej98nhh3r85nsgoobjl5g6cqugsrprko415m703",
+      //     base: "USD",
+      //     // symbols: ["XPD,XPT,XRH"],
+      //     // symbols: `XPD${"%2"}CXPT${"%2"}CXRH`,
+      //     symbols: "XPD,XPT,XRH",
+      //   },
+      // })
+      .get(metalApi)
+      .then((res) => {
+        // console.log(res.data);
+        // console.log(res.data.rates.XPD);
+        // const { XPD, XPT, XRH } = res.data;
+        // console.log(XPD);
+        // console.log(XPT);
+        // console.log(XRH);
+        setApiPrice(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div
@@ -22,7 +60,19 @@ function LoginForm() {
         margin: 0,
       }}
     >
-      <h2>Today's metal price</h2>
+      <div>
+        <h2>Today's metal price</h2>
+        <div>
+          {/* <p>PT's Price : {expo(apiPrice.XPT, 2)}</p> */}
+          <p>PT's Price (USD/toz): {(apiPrice.XPT * 10e5).toFixed(2)}</p>
+          <p>PD's Price (USD/toz) : {(apiPrice.XPD * 10e5).toFixed(2)}</p>
+          <p>RH's Price (USD/toz) : {(apiPrice.XRH * 10e5).toFixed(2)}</p>
+          <p>
+            {" "}
+            updated date : {new Date(apiPrice.createdAt).toLocaleDateString()}
+          </p>
+        </div>
+      </div>
       <form style={{ width: "40%" }}>
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
@@ -50,7 +100,7 @@ function LoginForm() {
           />
         </div>
         <a
-          href="#"
+          href="/"
           style={{
             padding: "10px",
             textDecoration: "none",
@@ -72,10 +122,12 @@ function LoginForm() {
           type="submit"
           className="btn btn-success"
           style={{ width: "100%", marginTop: "30px" }}
+          onClick={() => navigate("/register")}
         >
           Register
         </button>
       </form>
+      <div></div>
     </div>
   );
 }

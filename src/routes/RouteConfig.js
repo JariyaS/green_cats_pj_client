@@ -16,12 +16,10 @@ import Contact from "../pages/Contact";
 import ApproveList from "../components/ApproveList";
 import Report from "../components/Report";
 import Quotation from "../components/Quotation";
-import QuotationDetails from "../components/QuotationDetails";
-import { CartContext } from "../contexts/CartContext";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
-  // const { product, cartItems } = useContext(CartContext);
+
   return (
     <Routes>
       {!user && (
@@ -52,7 +50,6 @@ function RouteConfig() {
           <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />
           <Route path="quotation" element={<Quotation />} />
-          <Route path="quotation-detail" element={<QuotationDetails />} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

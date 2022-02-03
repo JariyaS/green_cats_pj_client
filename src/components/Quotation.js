@@ -10,8 +10,8 @@ function Quotation() {
   const { user } = useContext(AuthContext);
   const { cartItems, totalQty, totalOffer, reCalculate } =
     useContext(CartContext);
-  console.log(cartItems);
-  console.log(user);
+  // console.log(cartItems);
+  // console.log(user);
   const navigate = useNavigate();
   return (
     <div className="p-3">
@@ -28,9 +28,9 @@ function Quotation() {
       </p>
       <button
         className="d-flex btn btn-primary"
-        className="d-flex btn btn-primary "
+        // className="d-flex btn btn-primary"
         type="submit"
-        onClick={() => navigate("/quotation-detail")}
+        onClick={() => navigate("/contact")}
       >
         Submit
       </button>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../config/axios";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
   const [firstName, setFirstName] = useState("");
@@ -8,11 +9,12 @@ function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8002/users/register", {
+      const res = await axios.post("/users/register", {
         firstName,
         lastName,
         email,
@@ -20,6 +22,7 @@ function RegisterForm() {
         password,
         confirmPassword,
       });
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -87,6 +90,7 @@ function RegisterForm() {
           type="submit"
           className="btn btn-primary"
           style={{ marginTop: "30px", marginLeft: "15vw" }}
+          onClick={handleSubmitRegister}
         >
           {" "}
           Submit

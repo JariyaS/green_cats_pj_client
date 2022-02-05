@@ -35,68 +35,85 @@ function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmitRegister}>
-      <div style={{ width: "40%", marginLeft: "30px" }}>
-        <div>
+    <div>
+      <form onSubmit={handleSubmitRegister}>
+        <div
+          style={{
+            width: "40%",
+            marginLeft: "30px",
+            marginTop: "20px",
+          }}
+        >
+          <div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            style={{ marginTop: "30px" }}
+            placeholder="Lastname"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
+          <input
+            type="text"
+            className="form-control"
+            style={{ marginTop: "30px" }}
+            placeholder="Phone number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <input
+            type="text"
+            className="form-control"
+            style={{ marginTop: "30px" }}
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            className="form-control"
+            style={{ marginTop: "30px" }}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            className="form-control"
+            style={{ marginTop: "30px" }}
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ marginTop: "30px", marginLeft: "15vw" }}
+            onClick={handleSubmitRegister}
+          >
+            {" "}
+            Submit
+          </button>
         </div>
-        <input
-          type="text"
-          className="form-control"
-          style={{ marginTop: "30px" }}
-          placeholder="Lastname"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+      </form>
+      <div>
+        <img
+          style={{ width: "50%", margin: "20px" }}
+          src={
+            "https://res.cloudinary.com/dup2jwtit/image/upload/v1644064091/Auto_cats_cycle_ofch2p.webp"
+          }
+          alt="AutoCats cycle"
         />
-        <input
-          type="text"
-          className="form-control"
-          style={{ marginTop: "30px" }}
-          placeholder="Phone number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-        <input
-          type="text"
-          className="form-control"
-          style={{ marginTop: "30px" }}
-          placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          className="form-control"
-          style={{ marginTop: "30px" }}
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          className="form-control"
-          style={{ marginTop: "30px" }}
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="btn btn-primary"
-          style={{ marginTop: "30px", marginLeft: "15vw" }}
-          onClick={handleSubmitRegister}
-        >
-          {" "}
-          Submit
-        </button>
       </div>
-    </form>
+    </div>
   );
 }
 

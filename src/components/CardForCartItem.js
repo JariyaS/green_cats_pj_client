@@ -9,18 +9,12 @@ import { useContext } from "react";
 function CardForCartItemOld({ product, bid, setBid }) {
   const { onAdd, onRemove } = useContext(CartContext);
 
-  // console.log(product);
-  const handleClickBid = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-  };
-
   return (
     <div className="d-flex flex-wrap " style={{ width: "95%" }}>
       <div className="card " style={{ width: "50%" }}>
         <p>BRAND: {product.brand}</p>
         <p>Model: {product.productName} </p>
-        <p>Offer Price(USD/PC) : {product.price} USD</p>
+        <p>Offer Price(USD/PC) : {product.price}$</p>
         <div className="card " style={{ width: "50%" }}>
           <p>Q'ty:{product.qty} </p>
           <div>

@@ -22,8 +22,8 @@ function CartItem() {
         style={{ width: "95%", justifyContent: "space-between" }}
       >
         <div className="card " style={{ width: "50%" }}>
-          <h4>Total Q'ty:{totalQty} </h4>
-          <h4>Total Amount:{totalOffer}</h4>
+          <h4>Total Q'ty:{totalQty} pcs. </h4>
+          <h4>Total Amount(USD):{totalOffer}$</h4>
         </div>
       </div>
       <div></div>

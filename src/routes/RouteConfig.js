@@ -37,8 +37,8 @@ function RouteConfig() {
         <Route path="/" element={<AdminLayout />}>
           <Route path="" element={<CatalogueWithPriceAdmin />} />
 
-          <Route path="cart" element={<Cart />} />
-          <Route path="contact" element={<Contact />} />
+          {/* <Route path="cart" element={<Cart />} /> */}
+          {/* <Route path="contact" element={<Contact />} /> */}
           <Route path="quotationlist" element={<QuotationList />} />
           <Route path="report" element={<Report />} />
 

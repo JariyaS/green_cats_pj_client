@@ -14,7 +14,7 @@ function CardWithPrice({ product, onAdd }) {
 
         <p>BRAND: {product.brand}</p>
         <p>Model: {product.productName} </p>
-        <p>Offer Price : {product.price} USD</p>
+        <p>Offer Price : {product.price} $</p>
 
         <AddToCart product={product} key={product.id} onAdd={onAdd} />
       </div>

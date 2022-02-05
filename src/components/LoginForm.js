@@ -9,16 +9,10 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [apiPrice, setApiPrice] = useState({});
   const navigate = useNavigate();
-  // const metalApi = "https://www.metals-api.com/api/latest";
+
   const metalApi = "/metalprices";
 
   const { login } = useContext(AuthContext);
-
-  // function expo(x, f) {
-  //   return String(Number.parseFloat(x).toExponential(f))
-  //     .split("e")
-  //     .join(" x 10 **");
-  // }
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
@@ -29,16 +23,7 @@ function LoginForm() {
 
   useEffect(() => {
     axios
-      // .get(metalApi, {
-      //   params: {
-      //     access_key:
-      //       "f4q75ozb2t3l78o673fdmej98nhh3r85nsgoobjl5g6cqugsrprko415m703",
-      //     base: "USD",
-      //     // symbols: ["XPD,XPT,XRH"],
-      //     // symbols: `XPD${"%2"}CXPT${"%2"}CXRH`,
-      //     symbols: "XPD,XPT,XRH",
-      //   },
-      // })
+
       .get(metalApi)
       .then((res) => {
         // console.log(res.data);
@@ -58,19 +43,68 @@ function LoginForm() {
         display: "flex",
         justifyContent: "space-around",
         margin: 0,
+        backgroundColor: "rgb(182,227,212)",
+        color: "Green",
+        paddingBottom: "100px",
+        fontFamily: "Roboto, sans-serif",
       }}
     >
-      <div>
-        <h2>Today's metal price</h2>
-        <div>
-          {/* <p>PT's Price : {expo(apiPrice.XPT, 2)}</p> */}
-          <p>PT's Price (USD/toz): {(apiPrice.XPT * 10e5).toFixed(2)}</p>
-          <p>PD's Price (USD/toz) : {(apiPrice.XPD * 10e5).toFixed(2)}</p>
-          <p>RH's Price (USD/toz) : {(apiPrice.XRH * 10e5).toFixed(2)}</p>
+      <div
+        style={{
+          // display: "flex",
+          textAlign: "center",
+          width: "50vw",
+        }}
+      >
+        <b>
+          <h2 style={{ marginTop: "30px" }}>Metal's price today</h2>
+        </b>
+        <div style={{ marginTop: "30px", fontSize: "20px" }}>
+          <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $</p>
+          <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $</p>
+          <p>Rohium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
           <p>
             {" "}
-            updated date : {new Date(apiPrice.createdAt).toLocaleDateString()}
+            {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}
           </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "evenly",
+            marginTop: "50px",
+          }}
+        >
+          {" "}
+          <img
+            style={{ width: "100px", margin: "20px" }}
+            src={
+              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644059078/toyota_logo_mmxwny.webp"
+            }
+            alt="Toyota"
+          />
+          <img
+            style={{ width: "100px", margin: "20px" }}
+            src={
+              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644060251/nissan_logo_qk2okp.webp"
+            }
+            alt="Nissan"
+          />
+          <img
+            style={{ width: "100px", margin: "20px" }}
+            src={
+              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644060237/honda_logo_ukfhmg.webp"
+            }
+            alt="Honda"
+          />
+          <img
+            style={{ width: "100px", margin: "20px" }}
+            src={
+              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644060347/ford_logo_odwl5v.webp"
+            }
+            alt="Ford"
+          />
         </div>
       </div>
       <form style={{ width: "40%" }}>
@@ -127,7 +161,6 @@ function LoginForm() {
           Register
         </button>
       </form>
-      <div></div>
     </div>
   );
 }

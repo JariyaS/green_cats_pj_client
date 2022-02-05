@@ -13,7 +13,7 @@ function CardWithPriceAdmin({ product, onAdd }) {
 
         <p>BRAND: {product.brand}</p>
         <p>Model: {product.productName} </p>
-        <p>Offer Price : {product.price} USD</p>
+        <p>Offer Price : {product.price} $</p>
       </div>
     </>
   );

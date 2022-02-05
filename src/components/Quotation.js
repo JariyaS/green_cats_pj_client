@@ -14,12 +14,12 @@ function Quotation() {
   const navigate = useNavigate();
   return (
     <div className="p-3">
-      <h3 style={{ marginLeft: "30vw" }}>Quotation</h3>
-      <h4>Name:{user.firstName}</h4>
-      <h4>Last Name:{user.lastName}</h4>
-      <h4>Phone No.:{user.phoneNumber}</h4>
-      <h4>Quantity(PC.):{totalQty}</h4>
-      <h4>Total Amount(USD):{totalOffer}</h4>
+      <h3 style={{ marginLeft: "30vw" }}>Quotation No.{`${user.id}`}</h3>
+      <h4>Name: {user.firstName}</h4>
+      <h4>Last Name: {user.lastName}</h4>
+      <h4>Phone No.: {user.phoneNumber}</h4>
+      <h4>Quantity: {totalQty} pcs.</h4>
+      <h4>Total Amount: {totalOffer} $</h4>
 
       <p>
         Please send products to us within 5 days after submit this form,

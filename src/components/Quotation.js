@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
-// import { FaProductHunt } from "react-icons/fa";
+import axios from "axios";
 
 function Quotation() {
   const { user } = useContext(AuthContext);
@@ -12,10 +12,24 @@ function Quotation() {
   // console.log(cartItems);
   // console.log(user);
   const navigate = useNavigate();
+
+  const hdlSubmitQuotation = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/quotations", {
+        totalOfferAmount: totalOffer,
+        userId: user.id,
+      });
+      navigate("/contact");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="p-3">
-      <h3 style={{ marginLeft: "30vw" }}>Quotation No.{`${user.id}`}</h3>
-      <h4>Name: {user.firstName}</h4>
+      <h3 style={{ marginLeft: "30vw" }}>Quotation No.{user.id}</h3>
+      <h4>First Name: {user.firstName}</h4>
       <h4>Last Name: {user.lastName}</h4>
       <h4>Phone No.: {user.phoneNumber}</h4>
       <h4>Quantity: {totalQty} pcs.</h4>
@@ -29,7 +43,8 @@ function Quotation() {
         className="d-flex btn btn-primary"
         // className="d-flex btn btn-primary"
         type="submit"
-        onClick={() => navigate("/contact")}
+        // onClick={() => navigate("/contact")}
+        onClick={hdlSubmitQuotation}
       >
         Submit
       </button>

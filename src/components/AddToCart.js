@@ -13,15 +13,29 @@ function AddToCart({ product }) {
 
   const handleClickAdd = () => {
     setSelected((prv) => !prv);
-    onAdd(product);
+    // onAdd(product);
+    console.log(cartItems);
+    const idx = cartItems.findIndex((x) => x.id === product.id);
+    if (idx != -1) {
+      onRemove(product);
+    } else {
+      onAdd(product);
+    }
+
+    // if (cartItems.hasOwnProperty("qty")) {
+    //   onRemove(product);
+    // } else {
+    //   onAdd(product);
+    // }
   };
 
   return (
-    <div className="p-3 m-4">
+    // <div className="p-3 m-4">
+    <div className={`p-3 m-4 ${selected && "bg-success"}`}>
       {/* <div className="col py-3 border-bottom border-end rounded-3 ms-2"> */}
-      <div className={`fs-5 ${selected && "bg-success"}`}>
+      <div>
         <p>
-          <button className="btn-light btn-sm" onClick={handleClickAdd}>
+          <button className="btn-light btn-sm " onClick={handleClickAdd}>
             Add to Sell
           </button>
         </p>

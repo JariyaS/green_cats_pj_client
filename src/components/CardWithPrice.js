@@ -6,7 +6,7 @@ import CartItem from "./CartItem";
 import CatalogueWp from "./CatalogueWp";
 
 function CardWithPrice({ product, onAdd }) {
-  console.log(product);
+  // console.log(product);
   return (
     <>
       <div className="card" style={{ width: "20%" }}>

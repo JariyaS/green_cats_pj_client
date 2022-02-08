@@ -2,7 +2,7 @@ import React from "react";
 
 import CatalogueWp from "../components/CatalogueWp";
 
-function CatalogueWithPrice() {
+function Catalogue() {
   return (
     <>
       <CatalogueWp />
@@ -10,4 +10,4 @@ function CatalogueWithPrice() {
   );
 }
 
-export default CatalogueWithPrice;
+export default Catalogue;

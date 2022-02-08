@@ -9,9 +9,7 @@ import Register from "../pages/Register";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
-import CatalogueWithoutPrice from "../pages/CatalogueWithoutPrice";
-import CatalogueWithPriceAdmin from "../pages/CatalogueWithPriceAdmin";
-import CatalogueWithPrice from "../pages/CatalogueWithPrice";
+import Catalogue from "../pages/Catalogue";
 import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
 
@@ -28,17 +26,15 @@ function RouteConfig() {
         <Route path="/" element={<PublicLayout />}>
           <Route path="" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="catalogue-np" element={<CatalogueWithoutPrice />} />
+          <Route path="catalogue-np" element={<Catalogue />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       )}
       {user?.userRole === "admin" && (
         <Route path="/" element={<AdminLayout />}>
-          <Route path="" element={<CatalogueWithPriceAdmin />} />
+          <Route path="" element={<Catalogue />} />
 
-          {/* <Route path="cart" element={<Cart />} /> */}
-          {/* <Route path="contact" element={<Contact />} /> */}
           <Route path="quotationlist" element={<QuotationList />} />
           <Route path="report" element={<Report />} />
 
@@ -47,7 +43,7 @@ function RouteConfig() {
       )}
       {user?.userRole === "user" && (
         <Route path="/" element={<MainLayout />}>
-          <Route path="" element={<CatalogueWithPrice />} />
+          <Route path="" element={<Catalogue />} />
 
           <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />

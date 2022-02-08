@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderUser from "../layouts/HeaderUser";
-import CardWithPrice from "./CardWithPrice";
-import CatalogueWithPrice from "../pages/CatalogueWithPrice";
+import CardProduct from "./CardProduct";
+import CatalogueWithPrice from "../pages/Catalogue";
 import AddToCart from "./AddToCart";
 import CardForCartItem from "./CardForCartItem";
 import { useContext } from "react";

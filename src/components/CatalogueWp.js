@@ -1,7 +1,8 @@
 import React from "react";
-import CardWithPrice from "./CardWithPrice";
+import CardProduct from "./CardProduct";
 import CartItem from "./CartItem";
 import CardForCartItem from "./CardForCartItem";
+
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 import SearchCatalogue from "./SearchCatalogue";
@@ -18,7 +19,7 @@ function CatalogueWp() {
       <div className="p-3">
         <div className="d-flex flex-wrap">
           {product.map((item) => (
-            <CardWithPrice product={item} key={item.id} onAdd={onAdd} />
+            <CardProduct product={item} key={item.id} onAdd={onAdd} />
           ))}
         </div>
       </div>

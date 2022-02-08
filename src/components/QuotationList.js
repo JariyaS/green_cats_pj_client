@@ -27,7 +27,8 @@ function QuotationList() {
                 {/* <p>{item.id}</p> */}
                 <p>Quotation Number: {item.quotationNo}</p>
                 <p>Total Amount: $ {item.totalOfferAmount}</p>
-                <p>Status: {item.status}</p>
+
+                <button>Status: {item.status}</button>
               </div>
             ))}
         </div>

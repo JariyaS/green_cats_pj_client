@@ -51,14 +51,11 @@ function CartContextProvider({ children }) {
     }
   };
 
-  // const [bid, setBid] = useState(0);
-  // console.log(bid);
-  // console.log(cartItems);
   let total = [];
   let totalQty = 0;
   let totalOffer = [];
 
-  console.log(cartItems);
+  // console.log(cartItems);
   const reCalculate = (cartItems) => {
     for (let item of cartItems) {
       let amount = +item.qty * +item.price;
@@ -74,7 +71,7 @@ function CartContextProvider({ children }) {
 
   reCalculate(cartItems);
 
-  console.log(totalQty);
+  // console.log(totalQty);
 
   return (
     <CartContext.Provider

@@ -14,45 +14,49 @@ import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
 
 import Report from "../components/Report";
-import Quotation from "../components/Quotation";
-import QuotationList from "../components/QuotationList";
+import Quotation from "../components/quotations/Quotation";
+import QuotationList from "../components/quotations/QuotationList";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
+  console.log(user);
 
   return (
-    <Routes>
-      {!user && (
-        <Route path="/" element={<PublicLayout />}>
-          <Route path="" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="catalogue-np" element={<Catalogue />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      )}
-      {user?.userRole === "admin" && (
-        <Route path="/" element={<AdminLayout />}>
-          <Route path="" element={<Catalogue />} />
+    <>
+      <Routes>
+        {!user && (
+          <Route path="/" element={<PublicLayout />}>
+            <Route path="" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="catalogue-np" element={<Catalogue />} />
+            <Route path="contact" element={<Contact />} />
+            {/* <Route path="*" element={<Navigate to="/" />} /> */}
+          </Route>
+        )}
+        {user?.userRole === "admin" && (
+          <Route path="/" element={<AdminLayout />}>
+            <Route path="" element={<Catalogue />} />
 
-          <Route path="quotationlist" element={<QuotationList />} />
-          <Route path="report" element={<Report />} />
+            <Route path="quotationlist" element={<QuotationList />} />
+            <Route path="report" element={<Report />} />
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      )}
-      {user?.userRole === "user" && (
-        <Route path="/" element={<MainLayout />}>
-          <Route path="" element={<Catalogue />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+        )}
+        {user?.userRole === "user" && (
+          <Route path="/" element={<MainLayout />}>
+            <Route path="" element={<Catalogue />} />
 
-          <Route path="cart" element={<Cart />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="quotation" element={<Quotation />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="quotation" element={<Quotation />} />
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      )}
-    </Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+        )}
+      </Routes>
+      )
+    </>
   );
 }
 

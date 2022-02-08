@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useEffect } from "react";
 import axios from "../config/axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -133,8 +133,8 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <a
-          href="/"
+        <Link
+          to="/"
           style={{
             padding: "10px",
             textDecoration: "none",
@@ -142,7 +142,7 @@ function LoginForm() {
           }}
         >
           Forgot password?
-        </a>
+        </Link>
 
         <button
           type="submit"

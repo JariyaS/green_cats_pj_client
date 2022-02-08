@@ -47,7 +47,7 @@ function HeaderUser() {
             <a>Home</a>
           </Link>
           <Link
-            to="/catalogue-wp"
+            to="/catalogue"
             style={{ padding: "10px", textDecoration: "none" }}
           >
             <BsShop />

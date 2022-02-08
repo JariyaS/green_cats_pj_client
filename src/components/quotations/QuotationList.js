@@ -3,14 +3,16 @@ import Quotation from "./Quotation";
 import axios from "axios";
 
 function QuotationList() {
-  const [quotations, setQuotations] = useState();
+  const [quotations, setQuotations] = useState([]);
 
   useEffect(() => {
     axios
       .get("/quotations")
 
       .then((res) => {
-        setQuotations(res.data.quotation);
+        console.log(quotations);
+        setQuotations(res.data.quotation); // set new state
+        console.log(quotations);
       })
       .catch((err) => console.log(err));
   }, []);

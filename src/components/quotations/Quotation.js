@@ -1,8 +1,8 @@
 import React from "react";
 // import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../contexts/AuthContext";
-import { CartContext } from "../contexts/CartContext";
+import { AuthContext } from "../../contexts/AuthContext";
+import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
 import axios from "axios";
 const { v4: uuidv4 } = require("uuid");

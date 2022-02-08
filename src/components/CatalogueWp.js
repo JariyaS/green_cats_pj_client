@@ -16,6 +16,7 @@ function CatalogueWp() {
   return (
     <>
       <SearchCatalogue />
+
       <div className="p-3">
         <div className="d-flex flex-wrap">
           {product.map((item) => (

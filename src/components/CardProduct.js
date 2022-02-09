@@ -7,9 +7,10 @@ import CartItem from "./CartItem";
 // import CatalogueWp from "./CatalogueWp";
 
 function CardProduct({ product, onAdd }) {
-  // console.log(product);
+  console.log("---------");
+  console.log(product);
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <div className="card" style={{ width: "20%" }}>

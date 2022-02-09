@@ -22,6 +22,7 @@ function CartContextProvider({ children }) {
 
   // add product.id in cart
   const onAdd = (product) => {
+    console.log(product);
     const idx = cartItems.findIndex((x) => x.id === product.id); //เช็คว่ามี ID นั้นๆหรือยัง
     const newCart = [...cartItems];
     if (idx !== -1) {

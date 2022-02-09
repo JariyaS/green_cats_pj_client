@@ -11,7 +11,7 @@ const { v4: uuidv4 } = require("uuid");
 
 function Quotation() {
   const { user } = useContext(AuthContext);
-  const { totalQty, totalOffer } = useContext(CartContext);
+  const { totalQty, totalOffer, cartItems } = useContext(CartContext);
   // console.log(cartItems);
   // console.log(user);
   const navigate = useNavigate();
@@ -19,10 +19,20 @@ function Quotation() {
   const hdlSubmitQuotation = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/quotations", {
+      const res = await axios.post("/quotations", {
         totalOfferAmount: totalOffer,
         userId: user.id,
       });
+
+      const quotationId = res.data.addQuotation.id;
+      console.log(quotationId);
+
+      await axios.post(`/quotations/${quotationId}`, {
+        quantity: cartItems[0].qty,
+        productId: cartItems[0].id,
+      });
+
+      // console.log(`/quotations/${quotationId}`);
 
       navigate("/contact");
     } catch (err) {

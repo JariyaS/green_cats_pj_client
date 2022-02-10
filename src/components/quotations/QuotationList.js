@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import Quotation from "./Quotation";
 import axios from "axios";
 
@@ -12,7 +13,7 @@ function QuotationList() {
       .then((res) => {
         console.log(quotations);
         setQuotations(res.data.quotation); // set new state
-        console.log(quotations);
+        console.log(res.data.quotation);
       })
       .catch((err) => console.log(err));
   }, []);

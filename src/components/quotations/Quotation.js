@@ -23,15 +23,33 @@ function Quotation() {
         totalOfferAmount: totalOffer,
         userId: user.id,
       });
+      console.log(res);
 
       const quotationId = res.data.addQuotation.id;
-      console.log(quotationId);
+      // console.log(quotationId);
+      // const quotation = res.data.addQuotation;
+      // console.log(quotation);
+      const quotationDetail = async () => {
+        try {
+          const resQuotationDetails = await axios.post("/quotations/create", {
+            cartItems,
+            quotationId,
+          });
+          console.log(resQuotationDetails);
+        } catch (err) {
+          console.log(err.message);
+        }
+      };
+      quotationDetail();
+      // await axios.post(`/quotations/${quotationId}`){
+      //   cartItems
+      // }
 
-      await axios.post(`/quotations/${quotationId}`, {
-        quantity: cartItems[0].qty,
-        productId: cartItems[0].id,
-      });
-
+      // await axios.post(`/quotations/${quotationId}`, {
+      //   quantity: cartItems[0].qty,
+      //   productId: cartItems[0].id,
+      // });
+      // console.log(cartItems[0].qty);
       // console.log(`/quotations/${quotationId}`);
 
       navigate("/contact");

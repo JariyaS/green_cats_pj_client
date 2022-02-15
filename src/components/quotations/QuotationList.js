@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Quotation from "./Quotation";
 import axios from "axios";
+import QuotationDetails from "./QuotationDetails";
 
 function QuotationList() {
   const [quotations, setQuotations] = useState([]);
@@ -17,7 +18,7 @@ function QuotationList() {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(quotations);
+  // console.log(quotations);
 
   return (
     <div>
@@ -27,11 +28,7 @@ function QuotationList() {
           {quotations &&
             quotations.map((item) => (
               <div key={item.id} className="col-md-6  p-3 card">
-                {/* <p>{item.id}</p> */}
-                <p>Quotation Number: {item.quotationNo}</p>
-                <p>Total Amount: $ {item.totalOfferAmount}</p>
-
-                <button>Status: {item.status}</button>
+                <QuotationDetails quotation={item} />
               </div>
             ))}
         </div>

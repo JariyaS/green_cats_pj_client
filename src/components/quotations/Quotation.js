@@ -41,16 +41,6 @@ function Quotation() {
         }
       };
       quotationDetail();
-      // await axios.post(`/quotations/${quotationId}`){
-      //   cartItems
-      // }
-
-      // await axios.post(`/quotations/${quotationId}`, {
-      //   quantity: cartItems[0].qty,
-      //   productId: cartItems[0].id,
-      // });
-      // console.log(cartItems[0].qty);
-      // console.log(`/quotations/${quotationId}`);
 
       navigate("/contact");
     } catch (err) {

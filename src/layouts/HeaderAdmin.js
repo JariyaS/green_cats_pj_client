@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { FaSignOutAlt } from "react-icons/fa";
 
 import { BsShop, BsFillFileTextFill, BsBagCheckFill } from "react-icons/bs";
+import { BiEdit } from "react-icons/bi";
 
 import React from "react";
 
@@ -45,27 +46,34 @@ function HeaderAdmin() {
               style={{ padding: "10px", textDecoration: "none" }}
             >
               <BsBagCheckFill />
-              <a>Quotation List</a>
+              Quotation List
             </Link>
             <Link
               to="/report"
               style={{ padding: "10px", textDecoration: "none" }}
             >
               <BsFillFileTextFill />
-              <a>Report</a>
+              Report
             </Link>
             <Link
               to="/catalogue-wp"
               style={{ padding: "10px", textDecoration: "none" }}
             >
               <BsShop />
-              <a>Catalogue</a>
+              Catalogue
+            </Link>
+            <Link
+              to="/admin-update"
+              style={{ padding: "10px", textDecoration: "none" }}
+            >
+              <BiEdit />
+              Update Catalogue
             </Link>
 
             <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
               <span onClick={() => logout()}>
                 <FaSignOutAlt />
-                <a>Logout</a>
+                Logout
               </span>
             </Link>
           </div>

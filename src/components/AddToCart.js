@@ -21,12 +21,6 @@ function AddToCart({ product }) {
     } else {
       onAdd(product);
     }
-
-    // if (cartItems.hasOwnProperty("qty")) {
-    //   onRemove(product);
-    // } else {
-    //   onAdd(product);
-    // }
   };
 
   return (
@@ -40,8 +34,6 @@ function AddToCart({ product }) {
           </button>
         </p>
       </div>
-
-      {/* <CartItem product={product} /> */}
     </div>
   );
 }

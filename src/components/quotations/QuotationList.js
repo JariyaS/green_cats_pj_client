@@ -6,17 +6,20 @@ import QuotationDetails from "./QuotationDetails";
 
 function QuotationList() {
   const [quotations, setQuotations] = useState([]);
-
-  useEffect(() => {
+  function loadQuotation() {
     axios
       .get("/quotations")
 
       .then((res) => {
-        console.log(quotations);
+        // console.log(quotations);
         setQuotations(res.data.quotation); // set new state
-        console.log(res.data.quotation);
+        // console.log(res.data.quotation);
       })
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    loadQuotation();
   }, []);
   // console.log(quotations);
 
@@ -28,7 +31,10 @@ function QuotationList() {
           {quotations &&
             quotations.map((item) => (
               <div key={item.id} className="col-md-6  p-3 card">
-                <QuotationDetails quotation={item} />
+                <QuotationDetails
+                  quotation={item}
+                  loadQuotation={loadQuotation}
+                />
               </div>
             ))}
         </div>

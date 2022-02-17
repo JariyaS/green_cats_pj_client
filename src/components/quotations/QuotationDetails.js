@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Modal } from "bootstrap";
 import CartItem from "../CartItem";
-// import quotationDetails from "../../../../green_cats_api/models/quotationDetails";
 
-function QuotationDetail({ quotation }) {
+function QuotationDetail({ quotation, loadQuotation }) {
   const modalEl = useRef();
+
+  const [modal, setModal] = useState(null);
   const [quotationDetails, setQuotationDetails] = useState(null);
 
   const onDetailClick = () => {
@@ -18,16 +19,30 @@ function QuotationDetail({ quotation }) {
       .then((res) => {
         // console.log(quotationDetails);
         setQuotationDetails(res.data); // set new state
-        // console.log(res.data);
+        console.log(res.data);
 
         // console.log(res.data.userId);
         // console.log(res.data.QuotationDetails[0].id);
+
+        setModal(modalObj);
         modalObj.show();
         return res.data;
       })
       .then((res) => {
         console.log(res);
-        console.log("*******");
+      })
+      .catch((err) => console.log(err));
+  };
+  const onUpdateClick = () => {
+    axios
+      .patch(`/quotations/${quotation.id}`)
+
+      .then((res) => {
+        return res.data;
+      })
+      .then((res) => {
+        loadQuotation();
+        modal.hide();
       })
       .catch((err) => console.log(err));
   };
@@ -50,6 +65,14 @@ function QuotationDetail({ quotation }) {
               <h5 className="modal-title">Quotation Details</h5>
               <button
                 type="button"
+                className="btn btn-success ms-3"
+                onClick={onUpdateClick}
+              >
+                update status to :{" "}
+                {quotation.status === "Waiting" ? "Delivered" : "Waiting"}
+              </button>
+              <button
+                type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
@@ -59,15 +82,26 @@ function QuotationDetail({ quotation }) {
               {quotationDetails &&
                 quotationDetails.QuotationDetails.map((item) => (
                   <div key={item.id}>
+                    <p>Submitted Date : {item.createdAt}</p>
                     <p>User Name : {quotationDetails.User.firstName}</p>
-                    <p>Product Name : {item.Product.productName}</p>
-                    <p>Quantity: {item.quantity}</p>
                     <p>Brand Name : {item.Product.Brand.brandName}</p>
+                    <p>Product Name : {item.Product.productName}</p>
+                    <p>Product Price : {item.productPrice}$</p>
+
+                    <p>Quantity: {item.quantity} pcs.</p>
                     <hr />
                   </div>
                 ))}
             </div>
             <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={onUpdateClick}
+              >
+                update status to :{" "}
+                {quotation.status === "Waiting" ? "Delivered" : "Waiting"}
+              </button>
               <button
                 type="button"
                 className="btn btn-secondary"

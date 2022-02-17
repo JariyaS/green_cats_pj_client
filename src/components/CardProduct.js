@@ -7,7 +7,6 @@ import CartItem from "./CartItem";
 // import CatalogueWp from "./CatalogueWp";
 
 function CardProduct({ product, onAdd }) {
-  console.log("---------");
   console.log(product);
   const { user } = useContext(AuthContext);
   // console.log(user);

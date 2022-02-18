@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import axios from "../config/axios";
 
-function AdminUpdate() {
+function AdminAddProduct() {
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [pt, setPt] = useState("");
@@ -10,26 +10,35 @@ function AdminUpdate() {
   const [rh, setRh] = useState("");
   const [img, setImg] = useState("");
 
-  // const imgInputEl = useRef();
-
   const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
+      try {
+        const formData = new FormData();
+        formData.append("img", img);
+        formData.append("brand", brand);
+        formData.append("model", model);
+        formData.append("pt", pt);
+        formData.append("pd", pd);
+        formData.append("rh", rh);
 
-      await axios.post("/products", {
-        brand,
-        model,
-        pt,
-        pd,
-        rh,
-        img,
-      });
+        await axios.post("/products", formData);
+      } catch (err) {
+        console.log(err);
+      }
+
+      // await axios.post("/products", {
+      //   brand,
+      //   model,
+      //   pt,
+      //   pd,
+      //   rh,
+      //   img,
+      // });
     } catch (err) {
       console.log(err);
     } finally {
-      // setLoading(false);
     }
-    // };
 
     setBrand("");
     setModel("");
@@ -37,13 +46,13 @@ function AdminUpdate() {
     setPd("");
     setRh("");
     setImg("");
-    // imgInputEl.current.value = null;
   };
   const handleSelect = (e) => {
     // e.preventDefault();
     console.log(e.target.value);
     setBrand(e.target.value);
   };
+
   const handleFileUpload = (e) => {
     console.log(e.target.files[0]);
     setImg(e.target.files[0]);
@@ -51,7 +60,7 @@ function AdminUpdate() {
 
   return (
     <div>
-      {JSON.stringify({ brand, model, pt, pd, rh, img })}
+      {/* {JSON.stringify({ brand, model, pt, pd, rh, img })} */}
       <div className="w-75 mx-auto my-3">
         <form onSubmit={handleSubmitForm}>
           <div>
@@ -61,6 +70,7 @@ function AdminUpdate() {
             <select
               className="form-select mb-3"
               aria-label=".form-select-lg example"
+              value={brand}
               onChange={handleSelect}
               defaultValue={0}
             >
@@ -76,6 +86,7 @@ function AdminUpdate() {
             <input
               type="text"
               className="form-control"
+              value={model}
               onChange={(e) => {
                 setModel(e.target.value);
               }}
@@ -95,17 +106,27 @@ function AdminUpdate() {
             <input
               type="text"
               className="form-control"
+              value={pd}
               onChange={(e) => setPd(e.target.value)}
             />
             <span className="input-group-text">Rh (Toz)</span>
             <input
               type="text"
               className="form-control"
+              value={rh}
               onChange={(e) => setRh(e.target.value)}
             />
           </div>
+
+          {img && (
+            <img
+              src={URL.createObjectURL(img)}
+              className="img-fluid"
+              alt="post-img"
+            />
+          )}
+
           <div className="input-group mb-3">
-            <label className="input-group-text">Upload</label>
             <input
               type="file"
               className="form-control"
@@ -119,4 +140,4 @@ function AdminUpdate() {
   );
 }
 
-export default AdminUpdate;
+export default AdminAddProduct;

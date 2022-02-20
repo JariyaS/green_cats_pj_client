@@ -67,7 +67,7 @@ function HeaderAdmin() {
               style={{ padding: "10px", textDecoration: "none" }}
             >
               <BiEdit />
-              Add Product
+              Add New Product
             </Link>
 
             <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRef } from "react";
-import axios from "../config/axios";
+import axios from "../../config/axios";
 
 function AdminAddProduct() {
   const [brand, setBrand] = useState("");
@@ -26,15 +26,6 @@ function AdminAddProduct() {
       } catch (err) {
         console.log(err);
       }
-
-      // await axios.post("/products", {
-      //   brand,
-      //   model,
-      //   pt,
-      //   pd,
-      //   rh,
-      //   img,
-      // });
     } catch (err) {
       console.log(err);
     } finally {
@@ -70,7 +61,6 @@ function AdminAddProduct() {
             <select
               className="form-select mb-3"
               aria-label=".form-select-lg example"
-              value={brand}
               onChange={handleSelect}
               defaultValue={0}
             >
@@ -86,7 +76,6 @@ function AdminAddProduct() {
             <input
               type="text"
               className="form-control"
-              value={model}
               onChange={(e) => {
                 setModel(e.target.value);
               }}
@@ -97,7 +86,6 @@ function AdminAddProduct() {
             <input
               type="text"
               className="form-control"
-              value={pt}
               onChange={(e) => {
                 setPt(e.target.value);
               }}
@@ -106,14 +94,12 @@ function AdminAddProduct() {
             <input
               type="text"
               className="form-control"
-              value={pd}
               onChange={(e) => setPd(e.target.value)}
             />
             <span className="input-group-text">Rh (Toz)</span>
             <input
               type="text"
               className="form-control"
-              value={rh}
               onChange={(e) => setRh(e.target.value)}
             />
           </div>
@@ -133,7 +119,7 @@ function AdminAddProduct() {
               onChange={handleFileUpload}
             />
           </div>
-          <button className="btn btn-primary btn-block">Submit</button>
+          <button className="btn btn-primary btn-block">Add new Product</button>
         </form>
       </div>
     </div>

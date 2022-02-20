@@ -16,7 +16,7 @@ import Contact from "../pages/Contact";
 import Report from "../components/Report";
 import Quotation from "../components/quotations/Quotation";
 import QuotationList from "../components/quotations/QuotationList";
-import AdminAddProduct from "../components/AdminAddProduct";
+import AdminRole from "../components/Admin/AdminRole";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
@@ -39,7 +39,7 @@ function RouteConfig() {
             <Route path="" element={<Catalogue />} />
             <Route path="quotationlist" element={<QuotationList />} />
             <Route path="report" element={<Report />} />
-            <Route path="admin-update" element={<AdminAddProduct />} />
+            <Route path="admin-update" element={<AdminRole />} />
 
             <Route path="*" element={<Navigate to="/" />} />
           </Route>

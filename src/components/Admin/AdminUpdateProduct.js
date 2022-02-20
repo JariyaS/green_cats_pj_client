@@ -74,7 +74,7 @@ function AdminUpdateProduct() {
             </select>
           </div>
           <div className=" input-group mb-3">
-            <span className="input-group-text">Product Id</span>
+            <span className="input-group-text">Model Name</span>
             <input
               type="text"
               className="form-control"

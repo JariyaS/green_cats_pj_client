@@ -9,13 +9,17 @@ function CartContextProvider({ children }) {
   // ใช้ useEffect เพื่อให้ทำงานเมื่อมีการส่งคำสั่งร้องขอข้อมูลไปที่ backend ในครั้งแรกครั้งเดียว
   // ขอข้อมูลผ่านทาง method get path : /products/withprice  โดยอัพเดท state (setState)
   // โดยให้ backend ส่งกลับมาในรูปบบ res.data.product
-  useEffect(() => {
+  function loadProduct() {
     axios
       .get("/products/withprice")
       .then((res) => {
         setProduct(res.data.product);
       })
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    loadProduct();
   }, []);
 
   const [cartItems, setCartItems] = useState([]);
@@ -81,11 +85,10 @@ function CartContextProvider({ children }) {
         cartItems,
         onAdd,
         onRemove,
-        // bid,
-        // setBid,
         reCalculate,
         totalQty,
         totalOffer,
+        loadProduct,
       }}
     >
       {children}

@@ -9,8 +9,9 @@ import { Modal } from "bootstrap";
 import AdminUpdateProduct from "./Admin/AdminUpdateProduct";
 
 // import CatalogueWp from "./CatalogueWp";
-function CardProduct({ product, onAdd }) {
+function CardProduct({ product, onAdd, loadProduct }) {
   // console.log(product);
+  console.log(loadProduct);
   const modalEl = useRef();
   const { user } = useContext(AuthContext);
   const onDetailClick = () => {
@@ -21,6 +22,7 @@ function CardProduct({ product, onAdd }) {
   // console.log(user);
   const onDeleteProduct = async () => {
     await axios.delete(`/products/${product.id}`);
+    loadProduct();
   };
 
   return (
@@ -63,7 +65,10 @@ function CardProduct({ product, onAdd }) {
                     ></button>
                   </div>
                   <div className="modal-body ">
-                    <AdminUpdateProduct />
+                    <AdminUpdateProduct
+                      product={product}
+                      loadProduct={loadProduct}
+                    />
                   </div>
                   <div className="modal-footer">
                     <button

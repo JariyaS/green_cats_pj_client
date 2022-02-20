@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import axios from "../../config/axios";
 
-function AdminUpdateProduct() {
-  const [brand, setBrand] = useState("");
-  const [model, setModel] = useState("");
-  const [pt, setPt] = useState("");
-  const [pd, setPd] = useState("");
-  const [rh, setRh] = useState("");
-  const [img, setImg] = useState("");
+function AdminUpdateProduct({ product, loadProduct }) {
+  const [brand, setBrand] = useState(product.brandId);
+  const [model, setModel] = useState(product.productName);
+  const [pt, setPt] = useState(product.ptToz);
+  const [pd, setPd] = useState(product.pdToz);
+  const [rh, setRh] = useState(product.rhToz);
+  // const [img, setImg] = useState("");
+  // console.log(product);
+  console.log(loadProduct);
 
   const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
       try {
         const formData = new FormData();
-        formData.append("img", img);
+        // formData.append("img", img);
         formData.append("brand", brand);
         formData.append("model", model);
         formData.append("pt", pt);
@@ -24,7 +26,7 @@ function AdminUpdateProduct() {
 
         // .patch(`/quotations/${quotation.id}`)
         // await axios.patch("/products", formData);
-        await axios.patch(`/products/`, formData);
+        await axios.patch(`/products/${product.id}`, formData);
       } catch (err) {
         console.log(err);
       }
@@ -32,13 +34,13 @@ function AdminUpdateProduct() {
       console.log(err);
     } finally {
     }
-
+    loadProduct();
     setBrand("");
     setModel("");
     setPt("");
     setPd("");
     setRh("");
-    setImg("");
+    // setImg("");
   };
   const handleSelect = (e) => {
     // e.preventDefault();
@@ -46,10 +48,10 @@ function AdminUpdateProduct() {
     setBrand(e.target.value);
   };
 
-  const handleFileUpload = (e) => {
-    console.log(e.target.files[0]);
-    setImg(e.target.files[0]);
-  };
+  // const handleFileUpload = (e) => {
+  //   console.log(e.target.files[0]);
+  //   setImg(e.target.files[0]);
+  // };
 
   return (
     <div>
@@ -64,7 +66,7 @@ function AdminUpdateProduct() {
               className="form-select mb-3"
               aria-label=".form-select-lg example"
               onChange={handleSelect}
-              defaultValue={0}
+              defaultValue={brand}
             >
               <option>Car Brand/Model </option>
               <option value="1">TOYOTA</option>
@@ -78,6 +80,7 @@ function AdminUpdateProduct() {
             <input
               type="text"
               className="form-control"
+              value={model}
               onChange={(e) => {
                 setModel(e.target.value);
               }}
@@ -88,6 +91,7 @@ function AdminUpdateProduct() {
             <input
               type="text"
               className="form-control"
+              value={pt}
               onChange={(e) => {
                 setPt(e.target.value);
               }}
@@ -96,31 +100,33 @@ function AdminUpdateProduct() {
             <input
               type="text"
               className="form-control"
+              value={pd}
               onChange={(e) => setPd(e.target.value)}
             />
             <span className="input-group-text">Rh (Toz)</span>
             <input
               type="text"
               className="form-control"
+              value={rh}
               onChange={(e) => setRh(e.target.value)}
             />
           </div>
 
-          {img && (
+          {/* {img && (
             <img
               src={URL.createObjectURL(img)}
               className="img-fluid"
               alt="post-img"
             />
-          )}
+          )} */}
 
-          <div className="input-group mb-3">
+          {/* <div className="input-group mb-3">
             <input
               type="file"
               className="form-control"
               onChange={handleFileUpload}
             />
-          </div>
+          </div> */}
           <button className="btn btn-primary btn-block">Update Product</button>
         </form>
       </div>

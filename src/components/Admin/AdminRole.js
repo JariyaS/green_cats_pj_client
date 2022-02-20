@@ -6,7 +6,6 @@ function AdminRole() {
   return (
     <div>
       <AdminAddProduct />
-      <AdminUpdateProduct />
     </div>
   );
 }

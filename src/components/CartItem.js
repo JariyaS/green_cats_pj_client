@@ -11,8 +11,7 @@ import { CartContext } from "../contexts/CartContext";
 import { useEffect, useState } from "react";
 
 function CartItem() {
-  const { cartItems, onAdd, setBid, totalQty, totalOffer, reCalculate } =
-    useContext(CartContext);
+  const { cartItems, totalQty, totalOffer } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
@@ -30,13 +29,7 @@ function CartItem() {
       <div>
         <div className="d-flex flex-wrap">
           {cartItems.map((item) => (
-            <CardForCartItem
-              product={item}
-              key={item.id}
-              onAdd={onAdd}
-              bid={item.bid}
-              setBid={setBid}
-            />
+            <CardForCartItem product={item} key={item.id} />
           ))}
         </div>
       </div>

@@ -27,7 +27,10 @@ function Report() {
         {quotations &&
           quotations.map((item) => (
             <div key={item.id} className="col-md-6  p-3 card">
-              <h4>Created Date: {new Date(item.createdAt).toLocaleString()}</h4>
+              <h4>
+                Created Date:{" "}
+                {new Date(item.createdAt).toLocaleString().split(",")[0]}
+              </h4>
               <h4>Quotation No.: {item.quotationNo}</h4>
               <h4>Total Amount.: {item.totalOfferAmount}$</h4>
               <h4>Status: {item.status}</h4>

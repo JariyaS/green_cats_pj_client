@@ -47,6 +47,9 @@ function QuotationDetail({ quotation, loadQuotation }) {
       .catch((err) => console.log(err));
   };
 
+  let createdDate = quotation.createdAt.split("T")[0];
+  console.log(createdDate);
+
   return (
     <div>
       <div className="col-md-6  p-3 card">
@@ -82,7 +85,7 @@ function QuotationDetail({ quotation, loadQuotation }) {
               {quotationDetails &&
                 quotationDetails.QuotationDetails.map((item) => (
                   <div key={item.id}>
-                    <p>Submitted Date : {item.createdAt}</p>
+                    <p>Submitted Date : {item.createdAt.split("T")[0]}</p>
                     <p>User Name : {quotationDetails.User.firstName}</p>
                     <p>Brand Name : {item.Product.Brand.brandName}</p>
                     <p>Product Name : {item.Product.productName}</p>

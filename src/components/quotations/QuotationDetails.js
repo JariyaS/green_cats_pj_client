@@ -47,8 +47,10 @@ function QuotationDetail({ quotation, loadQuotation }) {
       .catch((err) => console.log(err));
   };
 
-  let createdDate = quotation.createdAt.split("T")[0];
-  console.log(createdDate);
+  const onDeleteClick = async () => {
+    await axios.delete(`/quotations/${quotation.id}`);
+    loadQuotation();
+  };
 
   return (
     <div>
@@ -107,11 +109,18 @@ function QuotationDetail({ quotation, loadQuotation }) {
               </button>
               <button
                 type="button"
+                className="btn btn-warning"
+                onClick={onDeleteClick}
+              >
+                Delete
+              </button>
+              {/* <button
+                type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

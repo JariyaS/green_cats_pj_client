@@ -50,6 +50,7 @@ function QuotationDetail({ quotation, loadQuotation }) {
   const onDeleteClick = async () => {
     await axios.delete(`/quotations/${quotation.id}`);
     loadQuotation();
+    modal.hide();
   };
 
   return (

@@ -62,7 +62,7 @@ function LoginForm() {
         <div style={{ marginTop: "30px", fontSize: "20px" }}>
           <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $</p>
           <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $</p>
-          <p>Rohium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
+          <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
           <p>
             {" "}
             {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}

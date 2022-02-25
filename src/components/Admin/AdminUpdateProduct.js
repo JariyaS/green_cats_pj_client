@@ -24,8 +24,6 @@ function AdminUpdateProduct({ product, loadProduct }) {
         formData.append("pd", pd);
         formData.append("rh", rh);
 
-        // .patch(`/quotations/${quotation.id}`)
-        // await axios.patch("/products", formData);
         await axios.patch(`/products/${product.id}`, formData);
       } catch (err) {
         console.log(err);
@@ -47,11 +45,6 @@ function AdminUpdateProduct({ product, loadProduct }) {
     console.log(e.target.value);
     setBrand(e.target.value);
   };
-
-  // const handleFileUpload = (e) => {
-  //   console.log(e.target.files[0]);
-  //   setImg(e.target.files[0]);
-  // };
 
   return (
     <div>
@@ -112,21 +105,6 @@ function AdminUpdateProduct({ product, loadProduct }) {
             />
           </div>
 
-          {/* {img && (
-            <img
-              src={URL.createObjectURL(img)}
-              className="img-fluid"
-              alt="post-img"
-            />
-          )} */}
-
-          {/* <div className="input-group mb-3">
-            <input
-              type="file"
-              className="form-control"
-              onChange={handleFileUpload}
-            />
-          </div> */}
           <button className="btn btn-primary btn-block">Update Product</button>
         </form>
       </div>

@@ -21,9 +21,12 @@ function CardProduct({ product, onAdd, loadProduct }) {
   };
   // console.log(user);
   const onDeleteProduct = async () => {
+    const modalObj = new Modal(modalEl.current);
     await axios.delete(`/products/${product.id}`);
+    modalObj.hide();
     loadProduct();
   };
+  console.log("****");
 
   return (
     <>
@@ -45,6 +48,7 @@ function CardProduct({ product, onAdd, loadProduct }) {
             <button
               className="add btn btn-success btn-block"
               onClick={onDeleteProduct}
+              data-bs-dismiss="modal"
             >
               Delete
             </button>
@@ -59,7 +63,7 @@ function CardProduct({ product, onAdd, loadProduct }) {
                     <h5 className="modal-title">Update Product</h5>
                     <button
                       type="button"
-                      className="btn-close"
+                      className="btn-close text-primary"
                       data-bs-dismiss="modal"
                       aria-label="Close"
                     ></button>

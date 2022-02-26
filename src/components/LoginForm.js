@@ -42,31 +42,31 @@ function LoginForm() {
       style={{
         display: "flex",
         justifyContent: "space-around",
-        margin: 0,
         backgroundColor: "rgb(182,227,212)",
         color: "Green",
         paddingBottom: "100px",
         fontFamily: "Roboto, sans-serif",
+        margin: "60px 40px 0px 40px",
       }}
     >
       <div
         style={{
-          // display: "flex",
-          textAlign: "center",
           width: "50vw",
         }}
       >
-        <b>
-          <h2 style={{ marginTop: "30px" }}>Metal's price today</h2>
-        </b>
-        <div style={{ marginTop: "30px", fontSize: "20px" }}>
-          <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $</p>
-          <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $</p>
-          <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
-          <p>
-            {" "}
-            {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}
-          </p>
+        <div style={{ border: "solid 1px" }}>
+          <b>
+            <h2>Metal's price today</h2>
+          </b>
+          <div style={{ marginTop: "30px", fontSize: "20px" }}>
+            <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $</p>
+            <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $</p>
+            <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
+            <p>
+              {" "}
+              {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -108,7 +108,7 @@ function LoginForm() {
         </div>
       </div>
       <form style={{ width: "40%" }}>
-        <div className="mb-3">
+        <div className="Email-Form mb-3">
           <label htmlFor="username" className="form-label">
             Email Address
           </label>
@@ -133,7 +133,7 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Link
+        {/* <Link
           to="/"
           style={{
             padding: "10px",
@@ -142,7 +142,7 @@ function LoginForm() {
           }}
         >
           Forgot password?
-        </Link>
+        </Link> */}
 
         <button
           type="submit"

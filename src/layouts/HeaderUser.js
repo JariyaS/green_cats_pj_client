@@ -8,6 +8,7 @@ import {
   BsFillCartFill,
   BsWhatsapp,
   BsShop,
+  BsCardChecklist,
 } from "react-icons/bs";
 
 import React from "react";
@@ -44,35 +45,42 @@ function HeaderUser() {
         >
           <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
             <BsFillHouseFill />
-            <a>Home</a>
+            Home
           </Link>
           <Link
             to="/catalogue"
             style={{ padding: "10px", textDecoration: "none" }}
           >
             <BsShop />
-            <a>Catalogue</a>
+            Catalogue
           </Link>
           <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
             <BsFillCartFill />
-            <a>Cart</a>
+            Cart
+          </Link>
+          <Link
+            to="/user-quotation"
+            style={{ padding: "10px", textDecoration: "none" }}
+          >
+            <BsCardChecklist />
+            Your Quotation
           </Link>
           <Link
             to="/contact"
             style={{ padding: "10px", textDecoration: "none" }}
           >
             <BsWhatsapp />
-            <a>Contact</a>
+            Contact
           </Link>
           <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
             <span onClick={() => logout()}>
               <FaSignOutAlt />
-              <a>Logout</a>
+              Logout
             </span>
           </Link>
         </div>
       </div>
-      <hr width="100%;" size="5"></hr>
+      {/* <hr width="100%;" size="5"></hr> */}
       <div
         style={{
           display: "flex",

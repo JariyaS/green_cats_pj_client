@@ -4,7 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { FaSignOutAlt } from "react-icons/fa";
 
 import { BsShop, BsFillFileTextFill, BsBagCheckFill } from "react-icons/bs";
-import { BiEdit } from "react-icons/bi";
+import { BiBookAdd } from "react-icons/bi";
 
 import React from "react";
 
@@ -37,7 +37,7 @@ function HeaderAdmin() {
             width: "60vw",
             alignSelf: "end",
             textAlign: "right",
-            marginRight: "2%",
+            // marginRight: "2%",
           }}
         >
           <div>
@@ -66,7 +66,7 @@ function HeaderAdmin() {
               to="/admin-update"
               style={{ padding: "10px", textDecoration: "none" }}
             >
-              <BiEdit />
+              <BiBookAdd />
               Add New Product
             </Link>
 
@@ -79,7 +79,7 @@ function HeaderAdmin() {
           </div>
         </div>
       </div>
-      <hr width="100%;" color="blue" size="5"></hr>
+      {/* <hr width="100%;" color="blue" size="5"></hr> */}
       <div
         style={{
           display: "flex",

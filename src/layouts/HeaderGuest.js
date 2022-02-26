@@ -14,7 +14,7 @@ function HeaderGuest() {
           justifyContent: "space-between",
         }}
       >
-        <div>
+        <div style={{ marginLeft: "20px", marginTop: "20px" }}>
           <div style={{ width: "40vw", marginLeft: "20px" }}>
             {" "}
             <h1
@@ -35,7 +35,7 @@ function HeaderGuest() {
             width: "60vw",
             alignSelf: "end",
             textAlign: "right",
-            marginRight: "2%",
+            // marginRight: "2%",
           }}
         >
           <Link
@@ -47,7 +47,7 @@ function HeaderGuest() {
             }}
           >
             <BsFillHouseFill />
-            <a>Home</a>
+            Home
           </Link>
           <Link
             to="/catalogue-np"
@@ -58,7 +58,7 @@ function HeaderGuest() {
             }}
           >
             <BsShop />
-            <a>Catalogue</a>
+            Catalogue
           </Link>
 
           <Link
@@ -67,14 +67,15 @@ function HeaderGuest() {
               padding: "10px",
               textDecoration: "none",
               color: "rgb(0, 51, 153)",
+              marginRight: "20px",
             }}
           >
             <BsWhatsapp />
-            <a>Contact</a>
+            Contact
           </Link>
         </div>
       </div>
-      <hr width="100%;" size="5" style={{ marginBottom: "0px" }}></hr>
+      {/* <hr width="100%;" size="5" style={{ marginBottom: "0px" }}></hr> */}
       <div
         style={{
           display: "flex",

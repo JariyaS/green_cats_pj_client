@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
-import axios from "axios";
+import axios from "../../config/axios";
 const { v4: uuidv4 } = require("uuid");
 
 // import quotations from "../../../green_cats_api/models/quotations";
@@ -23,7 +23,7 @@ function Quotation() {
         totalOfferAmount: totalOffer,
         userId: user.id,
       });
-      console.log(res);
+      // console.log(res);
 
       const quotationId = res.data.addQuotation.id;
       // console.log(quotationId);
@@ -42,7 +42,7 @@ function Quotation() {
       };
       quotationDetail();
 
-      navigate("/contact");
+      navigate("/user-quotation");
     } catch (err) {
       console.log(err);
     }

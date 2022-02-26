@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import { Link, NavLink } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import axios from "../../config/axios";
 import { Modal } from "bootstrap";
-import CartItem from "../CartItem";
+// import CartItem from "../CartItem";
 
 function QuotationDetail({ quotation, loadQuotation }) {
   const modalEl = useRef();

@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-// import HeaderAdmin from "../layouts/HeaderAdmin";
+import UserQuotation from "../components/quotations/UserQuotation";
 
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
@@ -51,6 +51,7 @@ function RouteConfig() {
             <Route path="cart" element={<Cart />} />
             <Route path="contact" element={<Contact />} />
             <Route path="quotation" element={<Quotation />} />
+            <Route path="user-quotation" element={<UserQuotation />} />
 
             <Route path="*" element={<Navigate to="/" />} />
           </Route>

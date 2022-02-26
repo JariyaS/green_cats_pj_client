@@ -21,12 +21,9 @@ function CardProduct({ product, onAdd, loadProduct }) {
   };
   // console.log(user);
   const onDeleteProduct = async () => {
-    const modalObj = new Modal(modalEl.current);
     await axios.delete(`/products/${product.id}`);
-    modalObj.hide();
     loadProduct();
   };
-  console.log("****");
 
   return (
     <>

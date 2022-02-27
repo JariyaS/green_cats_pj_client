@@ -11,7 +11,7 @@ import AdminUpdateProduct from "./Admin/AdminUpdateProduct";
 // import CatalogueWp from "./CatalogueWp";
 function CardProduct({ product, onAdd, loadProduct }) {
   // console.log(product);
-  console.log(loadProduct);
+  // console.log(loadProduct);
   const modalEl = useRef();
   const { user } = useContext(AuthContext);
   const onDetailClick = () => {

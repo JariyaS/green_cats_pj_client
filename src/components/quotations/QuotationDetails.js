@@ -1,38 +1,44 @@
 import React, { useState, useRef, useEffect } from "react";
-// import { Link, NavLink } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-import axios from "../../config/axios";
+import { Link, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Modal } from "bootstrap";
-// import CartItem from "../CartItem";
+import CartItem from "../CartItem";
 
 function QuotationDetail({ quotation, loadQuotation }) {
+  // console.log(quotation);
   const modalEl = useRef();
 
   const [modal, setModal] = useState(null);
-  const [quotationDetails, setQuotationDetails] = useState(null);
+  const [details, setDetails] = useState(null);
 
   const onDetailClick = () => {
     const modalObj = new Modal(modalEl.current);
+
+    console.log(quotation.id);
     axios
+
       .get(`/quotations/${quotation.id}`)
 
       .then((res) => {
-        // console.log(quotationDetails);
-        setQuotationDetails(res.data); // set new state
+        // setQuotationDetails(res.data.quotationDetail); // set new state
+        setDetails(res.data);
         console.log(res.data);
-
-        // console.log(res.data.userId);
-        // console.log(res.data.QuotationDetails[0].id);
+        // console.log(res);
+        // console.log(res.data.quotationDetail);
 
         setModal(modalObj);
         modalObj.show();
+        // console.log(details);
         return res.data;
       })
-      .then((res) => {
-        console.log(res);
-      })
+
+      // .then((res) => {
+      //   console.log(res.data);
+      // })
       .catch((err) => console.log(err));
   };
+
   const onUpdateClick = () => {
     axios
       .patch(`/quotations/${quotation.id}`)
@@ -52,9 +58,12 @@ function QuotationDetail({ quotation, loadQuotation }) {
     loadQuotation();
     modal.hide();
   };
-
+  // if (details.length > 0) {
+  //   console.log(details.quotationDetail[0].QuotationDetails);
+  // }
   return (
     <div>
+      {/* {JSON.stringify(quotationDetails.QuotationDetails)} */}
       <div className="col-md-6  p-3 card">
         <p>Quotation Number: {quotation.quotationNo}</p>
         <p>Total Amount: $ {quotation.totalOfferAmount}</p>
@@ -85,19 +94,37 @@ function QuotationDetail({ quotation, loadQuotation }) {
               ></button>
             </div>
             <div className="modal-body bg-info">
-              {quotationDetails &&
-                quotationDetails.QuotationDetails.map((item) => (
-                  <div key={item.id}>
-                    <p>Submitted Date : {item.createdAt.split("T")[0]}</p>
-                    <p>User Name : {quotationDetails.User.firstName}</p>
-                    <p>Brand Name : {item.Product.Brand.brandName}</p>
-                    <p>Product Name : {item.Product.productName}</p>
-                    <p>Product Price : {item.productPrice}$</p>
-
-                    <p>Quantity: {item.quantity} pcs.</p>
-                    <hr />
+              {/* {JSON.stringify(details.QuotationDetails)} */}
+              {/* {JSON.stringify(quotationDetails[0])}
+              console.log(quotationDetails[0]) */}
+              {/* {JSON.stringify(details && details.QuotationDetails)} */}
+              {/* {JSON.stringify(details.quotationDetail[0].QuotationDetails)} */}
+              {/* {details.length > 0 &&
+                details.quotationDetail[0].QuotationDetails.map((item) => (
+                  <div>
+                    <p> AAAA </p>
                   </div>
-                ))}
+                ))} */}
+              {/* {details && JSON.stringify(details.QuotationDetails)} */}
+              {details && (
+                <>
+                  <p> Submitted Date : {details.createdAt}</p>
+                  <p>
+                    {" "}
+                    Customer Name : {details.User.first_name}{" "}
+                    {details.User.last_name}
+                  </p>
+                  <p> Phone Number : {details.User.phone_number} </p>
+
+                  {details.QuotationDetails.map((item) => (
+                    <div>
+                      <p>Brand Name : {item.Product.Brand.brand_name}</p>
+                      <p>Product Name : {item.Product.product_name}</p>
+                      <p>Q'ty: {item.quantity}</p>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
             <div className="modal-footer">
               <button

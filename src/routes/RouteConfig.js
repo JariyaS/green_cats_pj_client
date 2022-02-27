@@ -20,7 +20,6 @@ import AdminRole from "../components/Admin/AdminRole";
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <>

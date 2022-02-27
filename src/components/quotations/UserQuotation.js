@@ -6,24 +6,23 @@ import { AuthContext } from "../../contexts/AuthContext";
 function UserQuotation() {
   const { user } = useContext(AuthContext);
   const [quotations, setQuotations] = useState([]);
-  console.log("test");
 
   useEffect(() => {
     console.log(user.id);
     axios
-      .get(`/quotations/${user.id}`)
+      .get(`/userQuotations/${user.id}`)
       //   .get("/quotations")
       .then((res) => {
         setQuotations(res.data.quotationDetail);
-        // console.log(setQuotations);
         // console.log(res.data.quotation);
-        console.log(res.data);
+        // console.log(res.data);
         console.log(res.data.quotationDetail);
       })
       .catch((err) => console.log(err));
   }, [user]);
 
   console.log(user.id);
+  console.log(quotations);
 
   return (
     <div>
@@ -33,12 +32,14 @@ function UserQuotation() {
           {quotations.map((item) => {
             const quoList = item.QuotationDetails.map((x) => (
               <>
+                <p> {x.quotationNo}</p>
                 <p> {x.quantity}</p>
                 <p> {x.Product.productPrice}</p>
                 <p> {x.Product.productName}</p>
+                {/* <p> {x.Product.Brand}</p> */}
               </>
             ));
-            console.log(quoList);
+            // console.log(quoList);
             return (
               <div key={item.id} className="col-md-6  p-3 card">
                 {quoList}

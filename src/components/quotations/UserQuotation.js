@@ -14,29 +14,33 @@ function UserQuotation() {
       //   .get("/quotations")
       .then((res) => {
         setQuotations(res.data.quotationDetail);
-        // console.log(res.data.quotation);
-        // console.log(res.data);
         console.log(res.data.quotationDetail);
+        // console.log(res.data.quotationDetail[0].QuotationDetails[0].Product.product_name);
       })
       .catch((err) => console.log(err));
   }, [user]);
 
-  console.log(user.id);
-  console.log(quotations);
+  // console.log(user.id);
 
   return (
     <div>
-      <div className="p-3">
+      <div>
         <div className="row">
-          {/* {JSON.stringify(setQuotations)} */}
+          <>
+            {console.log(quotations)}
+            {/* <p>Total Amount : {quotations}</p> */}
+          </>
+
           {quotations.map((item) => {
             const quoList = item.QuotationDetails.map((x) => (
               <>
-                <p> {x.quotationNo}</p>
-                <p> {x.quantity}</p>
-                <p> {x.Product.productPrice}</p>
-                <p> {x.Product.productName}</p>
-                {/* <p> {x.Product.Brand}</p> */}
+                <div className="col-md-12  p-3 card">
+                  <p> Brand Name : {x.Product.Brand.brand_name}</p>
+                  <p> Product Name : {x.Product.product_name}</p>
+                  <p> Price/piece :{x.product_price} $</p>
+                  <p> Quantity (pc) : {x.quantity} </p>
+                  <p> Amount : {x.product_price * x.quantity}$</p>
+                </div>
               </>
             ));
             // console.log(quoList);
@@ -46,7 +50,6 @@ function UserQuotation() {
               </div>
             );
           })}
-          <p>Your Quotation</p>
         </div>
       </div>
     </div>

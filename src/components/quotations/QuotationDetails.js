@@ -58,12 +58,9 @@ function QuotationDetail({ quotation, loadQuotation }) {
     loadQuotation();
     modal.hide();
   };
-  // if (details.length > 0) {
-  //   console.log(details.quotationDetail[0].QuotationDetails);
-  // }
+
   return (
     <div>
-      {/* {JSON.stringify(quotationDetails.QuotationDetails)} */}
       <div className="col-md-6  p-3 card">
         <p>Quotation Number: {quotation.quotationNo}</p>
         <p>Total Amount: $ {quotation.totalOfferAmount}</p>
@@ -94,21 +91,10 @@ function QuotationDetail({ quotation, loadQuotation }) {
               ></button>
             </div>
             <div className="modal-body bg-info">
-              {/* {JSON.stringify(details.QuotationDetails)} */}
-              {/* {JSON.stringify(quotationDetails[0])}
-              console.log(quotationDetails[0]) */}
-              {/* {JSON.stringify(details && details.QuotationDetails)} */}
-              {/* {JSON.stringify(details.quotationDetail[0].QuotationDetails)} */}
-              {/* {details.length > 0 &&
-                details.quotationDetail[0].QuotationDetails.map((item) => (
-                  <div>
-                    <p> AAAA </p>
-                  </div>
-                ))} */}
               {/* {details && JSON.stringify(details.QuotationDetails)} */}
               {details && (
                 <>
-                  <p> Submitted Date : {details.createdAt}</p>
+                  <p> Submitted Date : {details.createdAt.split("T")[0]}</p>
                   <p>
                     {" "}
                     Customer Name : {details.User.first_name}{" "}
@@ -117,10 +103,11 @@ function QuotationDetail({ quotation, loadQuotation }) {
                   <p> Phone Number : {details.User.phone_number} </p>
 
                   {details.QuotationDetails.map((item) => (
-                    <div>
+                    <div className="col-md-6  p-3 card">
                       <p>Brand Name : {item.Product.Brand.brand_name}</p>
                       <p>Product Name : {item.Product.product_name}</p>
-                      <p>Q'ty: {item.quantity}</p>
+                      <p>Q'ty: {item.quantity} pcs.</p>
+                      <p>Price: {item.product_price}$</p>
                     </div>
                   ))}
                 </>

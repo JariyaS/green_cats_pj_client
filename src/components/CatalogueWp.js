@@ -15,7 +15,7 @@ function CatalogueWp() {
 
   return (
     <>
-      <SearchCatalogue />
+      {/* <SearchCatalogue /> */}
 
       <div className="p-3">
         <div className="d-flex flex-wrap">

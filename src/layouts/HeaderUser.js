@@ -17,32 +17,15 @@ function HeaderUser() {
   const { logout } = useContext(AuthContext);
 
   return (
-    <div style={{ backgroundColor: "rgb(182,227,212)", color: "Green" }}>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className="header-layout">
+      <div className="header-green-top">
         <div>
-          <div style={{ width: "40vw", marginLeft: "20px" }}>
-            {" "}
-            <h1
-              style={{
-                margintop: "100px",
-                fontamily: "'Cormorant Garamond' , serif",
-              }}
-            >
-              GREEN CATS
-            </h1>
-            <h4 style={{ margin: 0, fontFamily: "'Dancing Script', cursive" }}>
-              Spent Auto Catalytic Converter Buyer
-            </h4>
+          <div className="header-green-mid">
+            <h1>GREEN CATS</h1>
+            <h4>PGM Recovery Systems</h4>
           </div>
         </div>
-        <div
-          style={{
-            width: "60vw",
-            alignSelf: "end",
-            textAlign: "right",
-            marginRight: "2%",
-          }}
-        >
+        <div className="link-header">
           <Link to="/home" style={{ padding: "10px", textDecoration: "none" }}>
             <BsFillHouseFill />
             Home
@@ -80,7 +63,7 @@ function HeaderUser() {
           </Link>
         </div>
       </div>
-      {/* <hr width="100%;" size="5"></hr> */}
+
       <div
         style={{
           display: "flex",

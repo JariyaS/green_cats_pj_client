@@ -14,32 +14,16 @@ import React from "react";
 function HeaderAdmin() {
   const { logout } = useContext(AuthContext);
   return (
-    <div style={{ backgroundColor: "rgb(182,227,212)", color: "Green" }}>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className="header-layout">
+      <div className="header-green-top">
         <div>
-          <div style={{ width: "40vw", marginLeft: "20px" }}>
+          <div className="header-green-mid">
             {" "}
-            <h1
-              style={{
-                margintop: "100px",
-                fontamily: "'Cormorant Garamond' , serif",
-              }}
-            >
-              GREEN CATS
-            </h1>
-            <h4 style={{ margin: 0, fontFamily: "'Dancing Script', cursive" }}>
-              Spent Auto Catalytic Converter Buyer
-            </h4>
+            <h1>GREEN CATS</h1>
+            <h4>PGM Recovery Systems</h4>
           </div>
         </div>
-        <div
-          style={{
-            width: "60vw",
-            alignSelf: "end",
-            textAlign: "right",
-            // marginRight: "2%",
-          }}
-        >
+        <div className="link-header">
           <div>
             <Link
               to="/quotationlist"
@@ -79,13 +63,6 @@ function HeaderAdmin() {
           </div>
         </div>
       </div>
-      {/* <hr width="100%;" color="blue" size="5"></hr> */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around ",
-        }}
-      ></div>
     </div>
   );
 }

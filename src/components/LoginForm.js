@@ -38,27 +38,14 @@ function LoginForm() {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        backgroundColor: "rgb(182,227,212)",
-        color: "Green",
-        paddingBottom: "100px",
-        fontFamily: "Roboto, sans-serif",
-        margin: "60px 40px 0px 40px",
-      }}
-    >
-      <div
-        style={{
-          width: "50vw",
-        }}
-      >
-        <div style={{ border: "solid 1px" }}>
+    <div className="login-outer">
+      <div className="login-mid">
+        <div className="metal-today container-lg">
           <b>
             <h2>Metal's price today</h2>
           </b>
-          <div style={{ marginTop: "30px", fontSize: "20px" }}>
+          {/* <div style={{ marginTop: "30px", fontSize: "20px" }}> */}
+          <div className="metal-price">
             <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $</p>
             <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $</p>
             <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
@@ -68,46 +55,20 @@ function LoginForm() {
             </p>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "evenly",
-            marginTop: "50px",
-          }}
-        >
+        {/* <div>
           {" "}
           <img
-            style={{ width: "100px", margin: "20px" }}
+            className="pic-login"
+            style={{ width: "300px" }}
             src={
-              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644059078/toyota_logo_mmxwny.webp"
+              "https://res.cloudinary.com/dup2jwtit/image/upload/v1645981392/Auto_cats_cycle_qrcn3q.webp"
             }
-            alt="Toyota"
+            alt="Logo"
           />
-          <img
-            style={{ width: "100px", margin: "20px" }}
-            src={
-              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644060251/nissan_logo_qk2okp.webp"
-            }
-            alt="Nissan"
-          />
-          <img
-            style={{ width: "100px", margin: "20px" }}
-            src={
-              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644060237/honda_logo_ukfhmg.webp"
-            }
-            alt="Honda"
-          />
-          <img
-            style={{ width: "100px", margin: "20px" }}
-            src={
-              "https://res.cloudinary.com/dup2jwtit/image/upload/v1644060347/ford_logo_odwl5v.webp"
-            }
-            alt="Ford"
-          />
-        </div>
+        </div> */}
       </div>
-      <form style={{ width: "40%" }}>
+
+      <form className="login-page">
         <div className="Email-Form mb-3">
           <label htmlFor="username" className="form-label">
             Email Address
@@ -133,17 +94,6 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {/* <Link
-          to="/"
-          style={{
-            padding: "10px",
-            textDecoration: "none",
-            marginBottom: "50px",
-          }}
-        >
-          Forgot password?
-        </Link> */}
-
         <button
           type="submit"
           className="btn btn-primary"

@@ -68,7 +68,7 @@ function AdminUpdateProduct({ product, loadProduct }) {
               <option value="4">MAZDA</option>
             </select>
           </div>
-          <div className=" input-group mb-3">
+          <div className="input-form input-group mb-3">
             <span className="input-group-text">Model Name</span>
             <input
               type="text"

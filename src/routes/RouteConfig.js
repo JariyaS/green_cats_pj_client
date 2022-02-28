@@ -30,7 +30,6 @@ function RouteConfig() {
             <Route path="register" element={<Register />} />
             <Route path="catalogue-np" element={<Catalogue />} />
             <Route path="contact" element={<Contact />} />
-            {/* <Route path="*" element={<Navigate to="/" />} /> */}
           </Route>
         )}
         {user?.userRole === "admin" && (

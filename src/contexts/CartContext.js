@@ -6,6 +6,7 @@ const CartContext = createContext();
 
 function CartContextProvider({ children }) {
   const [product, setProduct] = useState([]);
+
   // ใช้ useEffect เพื่อให้ทำงานเมื่อมีการส่งคำสั่งร้องขอข้อมูลไปที่ backend ในครั้งแรกครั้งเดียว
   // ขอข้อมูลผ่านทาง method get path : /products/withprice  โดยอัพเดท state (setState)
   // โดยให้ backend ส่งกลับมาในรูปบบ res.data.product
@@ -76,7 +77,9 @@ function CartContextProvider({ children }) {
 
   reCalculate(cartItems);
 
-  // console.log(totalQty);
+  const clearCartItems = () => {
+    setCartItems([]);
+  };
 
   return (
     <CartContext.Provider
@@ -89,6 +92,8 @@ function CartContextProvider({ children }) {
         totalQty,
         totalOffer,
         loadProduct,
+        length: cartItems.length,
+        clearCartItems,
       }}
     >
       {children}

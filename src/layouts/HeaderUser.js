@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { CartContext } from "../contexts/CartContext";
 
 import { FaSignOutAlt } from "react-icons/fa";
 import {
@@ -15,6 +16,12 @@ import React from "react";
 
 function HeaderUser() {
   const { logout } = useContext(AuthContext);
+  const { length, clearCartItems } = useContext(CartContext);
+
+  const handleClickLogOut = () => {
+    clearCartItems();
+    logout();
+  };
 
   return (
     <div className="header-layout">
@@ -39,7 +46,7 @@ function HeaderUser() {
           </Link>
           <Link to="/cart" style={{ padding: "10px", textDecoration: "none" }}>
             <BsFillCartFill />
-            Cart
+            Cart <span>{length}</span>
           </Link>
           <Link
             to="/user-quotation"
@@ -56,7 +63,7 @@ function HeaderUser() {
             Contact
           </Link>
           <Link to="/" style={{ padding: "10px", textDecoration: "none" }}>
-            <span onClick={() => logout()}>
+            <span onClick={handleClickLogOut}>
               <FaSignOutAlt />
               Logout
             </span>

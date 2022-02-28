@@ -25,31 +25,27 @@ function UserQuotation() {
   return (
     <div>
       <div>
-        <div className="row">
-          <>
-            {console.log(quotations)}
-            {/* <p>Total Amount : {quotations}</p> */}
-          </>
-
-          {quotations.map((item) => {
-            const quoList = item.QuotationDetails.map((x) => (
-              <>
-                <div className="col-md-12  p-3 card">
-                  <p> Brand Name : {x.Product.Brand.brand_name}</p>
-                  <p> Product Name : {x.Product.product_name}</p>
-                  <p> Price/piece :{x.product_price} $</p>
-                  <p> Quantity (pc) : {x.quantity} </p>
-                  <p> Amount : {x.product_price * x.quantity}$</p>
-                </div>
-              </>
-            ));
-            // console.log(quoList);
-            return (
-              <div key={item.id} className="col-md-6  p-3 card">
-                {quoList}
+        <div className="userQuotation-card row">
+          {quotations.map((item) => (
+            <div className="col-md-12  p-3 card">
+              <div>
+                <p>
+                  Customer Name : {item.User.first_name} {item.User.last_name}
+                </p>
+                <p>Submitted Date: {item.createdAt.split("T")[0]}</p>
+                <p>Quotation No. : {item.quotationNo}</p>
+                <p>Total Amount: {item.totalOfferAmount} $</p>
               </div>
-            );
-          })}
+              {item.QuotationDetails.map((item) => (
+                <div className="quoDetail col-md-12  p-3 card">
+                  <p>Brand Name: {item.Product.Brand.brand_name}</p>
+                  <p>Product Name: {item.Product.product_name}</p>
+                  <p>Price/piece: {item.product_price} $ </p>
+                  <p>Quantity (pc): {item.quantity}</p>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>

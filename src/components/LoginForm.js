@@ -46,9 +46,9 @@ function LoginForm() {
           </b>
           {/* <div style={{ marginTop: "30px", fontSize: "20px" }}> */}
           <div className="metal-price">
-            <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $</p>
-            <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $</p>
-            <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $</p>
+            <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $/Toz</p>
+            <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $/Toz</p>
+            <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $/Toz</p>
             <p>
               {" "}
               {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}

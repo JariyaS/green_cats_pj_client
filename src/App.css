@@ -129,3 +129,12 @@ h4 {
   /* padding: 150px; */
   /* box-shadow: 20px 20px 10px #aaaaaa; */
 }
+.userQuotation-card {
+  display: flex;
+  justify-content: space-around;
+}
+.quoDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

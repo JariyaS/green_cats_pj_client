@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useEffect } from "react";
 import axios from "../config/axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./LoginForm.css";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -39,23 +40,24 @@ function LoginForm() {
 
   return (
     <div className="login-outer">
-      <div className="login-mid">
-        <div className="metal-today container-lg">
-          <b>
-            <h2>Metal's price today</h2>
-          </b>
-          {/* <div style={{ marginTop: "30px", fontSize: "20px" }}> */}
-          <div className="metal-price">
-            <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $/Toz</p>
+      <div className="login-body">
+        <div className="login-mid">
+          <div className="metal-today container-lg">
+            <b>
+              <h2 style={{ marginTop: "30px" }}>Metal's price today</h2>
+            </b>
+            {/* <div style={{ marginTop: "30px", fontSize: "20px" }}> */}
+            <div className="metal-price">
+              {/* <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $/Toz</p>
             <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $/Toz</p>
-            <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $/Toz</p>
-            <p>
-              {" "}
-              {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}
-            </p>
+            <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $/Toz</p> */}
+              <p>
+                {" "}
+                {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}
+              </p>
+            </div>
           </div>
-        </div>
-        {/* <div>
+          {/* <div>
           {" "}
           <img
             className="pic-login"
@@ -66,51 +68,52 @@ function LoginForm() {
             alt="Logo"
           />
         </div> */}
+        </div>
+
+        <form className="login-page">
+          <div className="Email-Form mb-3">
+            <label htmlFor="username" className="form-label">
+              Email Address
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ width: "100%", marginTop: "30px" }}
+            onClick={handleSubmitLogin}
+          >
+            Sign In
+          </button>
+          <button
+            type="submit"
+            className="btn btn-success"
+            style={{ width: "100%", marginTop: "30px" }}
+            onClick={() => navigate("/register")}
+          >
+            Register
+          </button>
+        </form>
       </div>
-
-      <form className="login-page">
-        <div className="Email-Form mb-3">
-          <label htmlFor="username" className="form-label">
-            Email Address
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          style={{ width: "100%", marginTop: "30px" }}
-          onClick={handleSubmitLogin}
-        >
-          Sign In
-        </button>
-        <button
-          type="submit"
-          className="btn btn-success"
-          style={{ width: "100%", marginTop: "30px" }}
-          onClick={() => navigate("/register")}
-        >
-          Register
-        </button>
-      </form>
     </div>
   );
 }

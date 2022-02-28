@@ -104,7 +104,7 @@ function RegisterForm() {
           </button>
         </div>
       </form>
-      <div>
+      {/* <div>
         <img
           style={{ width: "50%", margin: "20px" }}
           src={
@@ -112,7 +112,7 @@ function RegisterForm() {
           }
           alt="AutoCats cycle"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

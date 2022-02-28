@@ -6,22 +6,28 @@ import CartItem from "./CartItem";
 import CatalogueWp from "./CatalogueWp";
 import { useContext } from "react";
 
-function CardForCartItemOld({ product, bid, setBid }) {
+function CardForCartItemOld({ product }) {
   const { onAdd, onRemove } = useContext(CartContext);
 
   return (
-    <div className="d-flex flex-wrap " style={{ width: "95%" }}>
-      <div className="card " style={{ width: "50%" }}>
+    <div className="cart-item1">
+      <div className="cart-item2 card ">
         <p>BRAND: {product.brand}</p>
         <p>Model: {product.productName} </p>
         <p>Offer Price(USD/PC) : {product.price}$</p>
-        <div className="card " style={{ width: "50%" }}>
+        <div className="cart-item3 card">
           <p>Q'ty:{product.qty} </p>
           <div>
-            <button className="add" onClick={() => onAdd(product)}>
+            <button
+              className="add btn btn-outline-secondary btn-sm"
+              onClick={() => onAdd(product)}
+            >
               +
             </button>
-            <button className="remove" onClick={() => onRemove(product)}>
+            <button
+              className="remove btn btn-outline-secondary btn-sm"
+              onClick={() => onRemove(product)}
+            >
               -
             </button>
           </div>

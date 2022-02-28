@@ -15,32 +15,32 @@ function CartItem() {
   const navigate = useNavigate();
 
   return (
-    <div className="p-3">
+    <div className="card-item1 p-3">
       <div
-        className="d-flex flex-wrap"
-        style={{ width: "95%", justifyContent: "space-between" }}
+        className="card-item2 col"
+        // style={{ width: "100%", justifyContent: "space-between " }}
       >
-        <div className="card " style={{ width: "50%" }}>
+        <div>
+          <div>
+            {cartItems.map((item) => (
+              <CardForCartItem product={item} key={item.id} />
+            ))}
+          </div>
+        </div>
+        <div className="catalogue-card card ">
           <h4>Total Q'ty:{totalQty} pcs. </h4>
           <h4>Total Amount(USD):{totalOffer}$</h4>
         </div>
-      </div>
-      <div></div>
-      <div>
-        <div className="d-flex flex-wrap">
-          {cartItems.map((item) => (
-            <CardForCartItem product={item} key={item.id} />
-          ))}
+        <div className="submit-button-cartItem">
+          <button
+            className="btn btn-primary "
+            type="submit"
+            onClick={() => navigate("/quotation")}
+          >
+            Submit
+          </button>
         </div>
       </div>
-
-      <button
-        className="d-flex btn btn-primary "
-        type="submit"
-        onClick={() => navigate("/quotation")}
-      >
-        Submit
-      </button>
     </div>
   );
 }

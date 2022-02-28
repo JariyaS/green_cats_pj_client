@@ -38,9 +38,7 @@ function QuotationList() {
 
   return (
     <div>
-      <div className="p-3">
-        {/* <div className="row"> */}
-
+      <div className="quotation-list p-3">
         <button className="btn btn-primary" onClick={handleWaitingClick}>
           Waiting
         </button>
@@ -57,7 +55,6 @@ function QuotationList() {
               />
             </div>
           ))}
-        {/* </div> */}
       </div>
     </div>
   );

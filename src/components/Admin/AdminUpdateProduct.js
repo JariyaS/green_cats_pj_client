@@ -51,7 +51,7 @@ function AdminUpdateProduct({ product, loadProduct }) {
   return (
     <div>
       {/* {JSON.stringify({ brand, model, pt, pd, rh, img })} */}
-      <div className="w-75 mx-auto my-3">
+      <div className="w-100 mx-auto my-3">
         <form onSubmit={handleSubmitForm}>
           <div>
             <label className="form-label text-uppercase mb-2">
@@ -70,11 +70,11 @@ function AdminUpdateProduct({ product, loadProduct }) {
               <option value="4">MAZDA</option>
             </select>
           </div>
-          <div className="input-form input-group mb-3">
+          <div className="input-form input-group mb-3 w-100 mx-auto ">
             <span className="input-group-text">Model Name</span>
             <input
               type="text"
-              className="form-control"
+              className="form-control "
               value={model}
               onChange={(e) => {
                 setModel(e.target.value);

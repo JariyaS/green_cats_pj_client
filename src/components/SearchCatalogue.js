@@ -15,6 +15,7 @@ function SearchCatalogue() {
         <option value="2">HONDA</option>
         <option value="3">ISUZU</option>
         <option value="4">MAZDA</option>
+        <option value="4">OTHERS</option>
       </select>
     </div>
   );

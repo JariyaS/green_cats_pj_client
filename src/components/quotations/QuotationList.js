@@ -6,6 +6,7 @@ import QuotationDetails from "./QuotationDetails";
 
 function QuotationList() {
   const [quotations, setQuotations] = useState([]);
+  const [filteredQuotations, setFilteredQuotations] = useState([]);
   function loadQuotation() {
     axios
       .get("/quotations")
@@ -13,6 +14,7 @@ function QuotationList() {
       .then((res) => {
         // console.log(quotations);
         setQuotations(res.data.quotation); // set new state
+        setFilteredQuotations(res.data.quotation);
         // console.log(res.data.quotation);
       })
       .catch((err) => console.log(err));
@@ -23,21 +25,39 @@ function QuotationList() {
   }, []);
   // console.log(quotations);
 
+  const handleWaitingClick = () => {
+    setFilteredQuotations(
+      quotations.filter((item) => item.status === "Waiting")
+    );
+  };
+  const handleDeliveredClick = () => {
+    setFilteredQuotations(
+      quotations.filter((item) => item.status === "Delivered")
+    );
+  };
+
   return (
     <div>
       <div className="p-3">
-        <div className="row">
-          {/* {JSON.stringify(quotations)} */}
-          {quotations &&
-            quotations.map((item) => (
-              <div key={item.id} className="col-md-6  p-3 card">
-                <QuotationDetails
-                  quotation={item}
-                  loadQuotation={loadQuotation}
-                />
-              </div>
-            ))}
-        </div>
+        {/* <div className="row"> */}
+
+        <button className="btn btn-primary" onClick={handleWaitingClick}>
+          Waiting
+        </button>
+        <button className="btn btn-info" onClick={handleDeliveredClick}>
+          Delivered
+        </button>
+        {/* {JSON.stringify(quotations)} */}
+        {quotations &&
+          filteredQuotations.map((item) => (
+            <div key={item.id} className="col-md-6  p-3 card">
+              <QuotationDetails
+                quotation={item}
+                loadQuotation={loadQuotation}
+              />
+            </div>
+          ))}
+        {/* </div> */}
       </div>
     </div>
   );

@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import axios from "../../config/axios";
+import { CartContext } from "../../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 function AdminAddProduct() {
+  const { loadProduct } = useContext(CartContext);
+  const navigate = useNavigate();
+
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [pt, setPt] = useState("");
@@ -23,6 +28,8 @@ function AdminAddProduct() {
         formData.append("rh", rh);
 
         await axios.post("/products", formData);
+        navigate("/");
+        loadProduct();
       } catch (err) {
         console.log(err);
       }
@@ -119,7 +126,12 @@ function AdminAddProduct() {
               onChange={handleFileUpload}
             />
           </div>
-          <button className="btn btn-primary btn-block">Add new Product</button>
+          <button
+            className="btn btn-primary btn-block"
+            // onClick={() => navigate("/")}
+          >
+            Add new Product
+          </button>
         </form>
       </div>
     </div>

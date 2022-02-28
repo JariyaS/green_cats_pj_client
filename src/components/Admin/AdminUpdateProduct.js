@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import axios from "../../config/axios";
+import { useNavigate } from "react-router-dom";
 
 function AdminUpdateProduct({ product, loadProduct }) {
+  const navigate = useNavigate();
   const [brand, setBrand] = useState(product.brandId);
   const [model, setModel] = useState(product.productName);
   const [pt, setPt] = useState(product.ptToz);
@@ -105,7 +107,12 @@ function AdminUpdateProduct({ product, loadProduct }) {
             />
           </div>
 
-          <button className="btn btn-primary btn-block">Update Product</button>
+          <button
+            className="btn btn-primary btn-block"
+            onClick={() => navigate("")}
+          >
+            Update Product
+          </button>
         </form>
       </div>
     </div>

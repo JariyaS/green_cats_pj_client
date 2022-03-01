@@ -11,6 +11,15 @@ function QuotationList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredQuoPerPage, setFilterQuoPerPage] = useState(5);
 
+  const paginate = (number) => setCurrentPage(number);
+
+  const indexOfLastProduct = currentPage * filteredQuoPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - filteredQuoPerPage;
+  const currentFilteredQuo = filteredQuotations.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   function loadQuotation() {
     axios
       .get("/quotations")
@@ -39,15 +48,6 @@ function QuotationList() {
       quotations.filter((item) => item.status === "Delivered")
     );
   };
-
-  const paginate = (number) => setCurrentPage(number);
-
-  const indexOfLastProduct = currentPage * filteredQuoPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - filteredQuoPerPage;
-  const currentFilteredQuo = filteredQuotations.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
 
   return (
     <div>

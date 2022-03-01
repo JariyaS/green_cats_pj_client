@@ -33,9 +33,6 @@ function QuotationDetail({ quotation, loadQuotation }) {
         return res.data;
       })
 
-      // .then((res) => {
-      //   console.log(res.data);
-      // })
       .catch((err) => console.log(err));
   };
 
@@ -129,13 +126,6 @@ function QuotationDetail({ quotation, loadQuotation }) {
               >
                 Delete
               </button>
-              {/* <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button> */}
             </div>
           </div>
         </div>

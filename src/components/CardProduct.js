@@ -16,20 +16,25 @@ function CardProduct({ product, onAdd, loadProduct }) {
   const { user } = useContext(AuthContext);
   const onDetailClick = () => {
     const modalObj = new Modal(modalEl.current);
-    // setModal(modalObj);
+
     modalObj.show();
   };
   // console.log(user);
   const onDeleteProduct = async () => {
-    await axios.delete(`/products/${product.id}`);
-    loadProduct();
+    try {
+      const res = await axios.delete(`/products/${product.id}`);
+      console.log(res);
+
+      loadProduct();
+    } catch (err) {
+      alert("This product cann't be deleted");
+    }
   };
 
   return (
     <>
       <div className=" card-product card" style={{ width: "20%" }}>
         <img src={product.productImg} alt="" />
-
         <p>BRAND: {product.brand}</p>
         <p>Model: {product.productName} </p>
         {user && user.userRole === "user" && (

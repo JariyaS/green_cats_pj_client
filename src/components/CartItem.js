@@ -16,10 +16,7 @@ function CartItem() {
 
   return (
     <div className="card-item1 p-3">
-      <div
-        className="card-item2 col"
-        // style={{ width: "100%", justifyContent: "space-between " }}
-      >
+      <div className="card-item2 col">
         <div>
           <div>
             {cartItems.map((item) => (

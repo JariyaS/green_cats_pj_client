@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import CardProduct from "./CardProduct";
-
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 import Pagination from "../layouts/Pagination";
-
-// import { useState, useEffect } from "react";
-// import axios from "../config/axios";
 
 function CatalogueWp() {
   const { onAdd, product, loadProduct } = useContext(CartContext);
@@ -26,7 +22,7 @@ function CatalogueWp() {
   console.log(currentProducts);
   return (
     <>
-      <div className="p-3">
+      <div className="catalogue p-3 ">
         <div className="d-flex flex-wrap">
           {currentProducts.map((item) => (
             <CardProduct

@@ -16,8 +16,7 @@ function UserQuotation() {
       //   .get("/quotations")
       .then((res) => {
         setQuotations(res.data.quotationDetail);
-        console.log(res.data.quotationDetail);
-        // console.log(res.data.quotationDetail[0].QuotationDetails[0].Product.product_name);
+        // console.log(res.data.quotationDetail);
       })
       .catch((err) => console.log(err));
   }, [user]);

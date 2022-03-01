@@ -29,7 +29,10 @@ function AddToCart({ product }) {
       {/* <div className="col py-3 border-bottom border-end rounded-3 ms-2"> */}
       <div>
         <p>
-          <button className="btn-light btn-sm " onClick={handleClickAdd}>
+          <button
+            className="add-to-sell-button btn-light btn-sm "
+            onClick={handleClickAdd}
+          >
             Add to Sell
           </button>
         </p>

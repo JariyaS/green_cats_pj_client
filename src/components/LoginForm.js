@@ -24,7 +24,6 @@ function LoginForm() {
 
   useEffect(() => {
     axios
-
       .get(metalApi)
       .then((res) => {
         // console.log(res.data);

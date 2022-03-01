@@ -10,9 +10,6 @@ function AdminUpdateProduct({ product, loadProduct }) {
   const [pt, setPt] = useState(product.ptToz);
   const [pd, setPd] = useState(product.pdToz);
   const [rh, setRh] = useState(product.rhToz);
-  // const [img, setImg] = useState("");
-  // console.log(product);
-  // console.log(loadProduct);
 
   const handleSubmitForm = async (e) => {
     try {

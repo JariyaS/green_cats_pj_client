@@ -61,7 +61,7 @@ function QuotationDetail({ quotation, loadQuotation }) {
 
   return (
     <div>
-      <div className="col-md-6  p-3 card">
+      <div className="quotation-details col-md-6  p-3 card">
         <p>Quotation Number: {quotation.quotationNo}</p>
         <p>Total Amount: $ {quotation.totalOfferAmount}</p>
 

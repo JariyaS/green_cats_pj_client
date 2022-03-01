@@ -38,7 +38,7 @@ function QuotationList() {
 
   return (
     <div>
-      <div className="quotation-list p-3">
+      <div className="quotation-list p-3 ">
         <button className="btn btn-primary" onClick={handleWaitingClick}>
           Waiting
         </button>
@@ -48,7 +48,7 @@ function QuotationList() {
         {/* {JSON.stringify(quotations)} */}
         {quotations &&
           filteredQuotations.map((item) => (
-            <div key={item.id} className="col-md-6  p-3 card">
+            <div key={item.id} className="col-md-9  p-3 card">
               <QuotationDetails
                 quotation={item}
                 loadQuotation={loadQuotation}

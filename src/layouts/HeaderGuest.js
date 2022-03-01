@@ -15,19 +15,24 @@ function HeaderGuest() {
           </div>
         </div>
         <div className="link-header-guest">
-          <Link to="/" className="link-style">
-            <BsFillHouseFill />
-            Home
-          </Link>
-          <Link to="/catalogue-np" className="link-style">
-            <BsShop />
-            Catalogue
-          </Link>
-
-          <Link to="/contact" className="link-style">
-            <BsWhatsapp />
-            Contact
-          </Link>
+          <div className="menu-nav-item ">
+            <Link to="/" className="link-style ">
+              <BsFillHouseFill />
+              Home
+            </Link>
+          </div>
+          <div className="menu-nav-item">
+            <Link to="/catalogue-np" className="link-style ">
+              <BsShop />
+              Catalogue
+            </Link>
+          </div>
+          <div className="menu-nav-item">
+            <Link to="/contact" className="link-style ">
+              <BsWhatsapp />
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,29 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  height: 85vh;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+.register-form {
+  border: 1px solid green;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  border-radius: 10px;
+  width: 400px;
+
+  height: 100%;
+}
+
+.main-register {
+  padding: 20px;
+}
+
+.register-container {
+  text-align: center;
+}
+
+.btn-register-form {
+  margin: 20px;
+}

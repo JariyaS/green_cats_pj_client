@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "../config/axios";
 import { useNavigate } from "react-router-dom";
+import "./RegisterForm.css";
 
 function RegisterForm() {
   const [firstName, setFirstName] = useState("");
@@ -35,15 +36,9 @@ function RegisterForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmitRegister}>
-        <div
-          style={{
-            width: "40%",
-            marginLeft: "30px",
-            marginTop: "20px",
-          }}
-        >
+    <div className="register-container">
+      <form className="register-form" onSubmit={handleSubmitRegister}>
+        <div className="main-register">
           <div>
             <input
               type="text"
@@ -95,8 +90,7 @@ function RegisterForm() {
           />
           <button
             type="submit"
-            className="btn btn-primary"
-            style={{ marginTop: "30px", marginLeft: "15vw" }}
+            className="btn btn-primary btn-register-form"
             onClick={handleSubmitRegister}
           >
             {" "}
@@ -104,15 +98,6 @@ function RegisterForm() {
           </button>
         </div>
       </form>
-      {/* <div>
-        <img
-          style={{ width: "50%", margin: "20px" }}
-          src={
-            "https://res.cloudinary.com/dup2jwtit/image/upload/v1644064091/Auto_cats_cycle_ofch2p.webp"
-          }
-          alt="AutoCats cycle"
-        />
-      </div> */}
     </div>
   );
 }

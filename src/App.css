@@ -35,8 +35,6 @@ h4 {
 
 .header-layout {
   color: rgb(0, 100, 0);
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
 }
 
 .add-product {
@@ -47,38 +45,14 @@ h4 {
   margin-top: 30px;
 }
 
-.metal-today {
-  border: solid 1px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #aaaaaa;
-}
-
 .metal-price {
   margin-top: 30px;
-}
-.login-outer {
-  display: flex;
-  padding-bottom: 100px;
-  margin: 40px 40px 0px 40px;
-  justify-content: space-around;
-  color: green;
-}
-
-.login-mid {
-  width: 50vw;
-}
-
-.login-page {
-  width: 40%;
-  border: solid 1px;
-  box-shadow: 10px 10px 5px #aaaaaa;
-  border-radius: 10px;
-  padding: 15px;
 }
 
 .header-green-top {
   display: flex;
   justify-content: space-between;
+  margin: 20px;
 }
 
 .link-header {
@@ -87,19 +61,14 @@ h4 {
   text-align: right;
   margin-right: 2%;
 }
-.link-header-guest {
-  align-self: end;
-  text-align: right;
-  margin-right: 5%;
-}
 
-.header-green-mid {
-  width: 40vw;
-  margin-left: 20px;
+.login-navbar {
+  bottom: 20px;
 }
 
 .link-style {
   padding: 10px;
+
   text-decoration: none;
   color: rgb(0, 51, 153);
 }

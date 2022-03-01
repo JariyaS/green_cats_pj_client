@@ -23,11 +23,15 @@ function HeaderAdmin() {
             <h4>PGM Recovery Systems</h4>
           </div>
         </div>
-        <div className="link-header">
+        <div className="link-header ">
           <div>
             <Link
               to="/quotationlist"
-              style={{ padding: "10px", textDecoration: "none" }}
+              style={{
+                padding: "10px",
+                marginBottom: "10px",
+                textDecoration: "none",
+              }}
             >
               <BsBagCheckFill />
               Quotation List

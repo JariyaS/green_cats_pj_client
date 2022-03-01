@@ -60,9 +60,7 @@ function Quotation() {
 
         <button
           className="d-flex btn btn-primary"
-          // className="d-flex btn btn-primary"
           type="submit"
-          // onClick={() => navigate("/contact")}
           onClick={hdlSubmitQuotation}
         >
           Submit

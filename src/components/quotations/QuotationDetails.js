@@ -61,7 +61,7 @@ function QuotationDetail({ quotation, loadQuotation }) {
 
   return (
     <div>
-      <div className="quotation-details col-md-6  p-3 card">
+      <div className="quotation-details1 col-md-6  p-3 card">
         <p>Quotation Number: {quotation.quotationNo}</p>
         <p>Total Amount: $ {quotation.totalOfferAmount}</p>
 
@@ -103,7 +103,7 @@ function QuotationDetail({ quotation, loadQuotation }) {
                   <p> Phone Number : {details.User.phone_number} </p>
 
                   {details.QuotationDetails.map((item) => (
-                    <div className="col-md-6  p-3 card">
+                    <div className="quotation-details2 col-md-6  p-3 card">
                       <p>Brand Name : {item.Product.Brand.brand_name}</p>
                       <p>Product Name : {item.Product.product_name}</p>
                       <p>Q'ty: {item.quantity} pcs.</p>

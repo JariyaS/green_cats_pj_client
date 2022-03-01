@@ -23,7 +23,7 @@ function CatalogueWp() {
     indexOfFirstProduct,
     indexOfLastProduct
   );
-
+  console.log(currentProducts);
   return (
     <>
       <div className="p-3">

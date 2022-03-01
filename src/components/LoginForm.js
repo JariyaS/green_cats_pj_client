@@ -44,13 +44,19 @@ function LoginForm() {
         <div className="login-mid">
           <div className="metal-today container-lg">
             <b>
-              <h2 style={{ marginTop: "30px" }}>Metal's price today</h2>
+              <h3>Metal's price today</h3>
             </b>
             {/* <div style={{ marginTop: "30px", fontSize: "20px" }}> */}
             <div className="metal-price">
-              {/* <p>Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $/Toz</p>
-            <p>Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $/Toz</p>
-            <p>Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $/Toz</p> */}
+              <p className="metal-item">
+                Patinum(Pt) : {(apiPrice.XPT * 10e5).toFixed(2)} $/Toz
+              </p>
+              <p className="metal-item">
+                Paradium(Pd): {(apiPrice.XPD * 10e5).toFixed(2)} $/Toz
+              </p>
+              <p className="metal-item">
+                Rhodium(Rh) : {(apiPrice.XRH * 10e5).toFixed(2)} $/Toz
+              </p>
               <p>
                 {" "}
                 {/* updated date : {new Date(apiPrice.createdAt).toLocaleDateString()} */}
@@ -71,7 +77,7 @@ function LoginForm() {
         </div>
 
         <form className="login-page">
-          <div className="Email-Form mb-3">
+          <div className="Email-Form ">
             <label htmlFor="username" className="form-label">
               Email Address
             </label>
@@ -98,8 +104,7 @@ function LoginForm() {
           </div>
           <button
             type="submit"
-            className="btn btn-primary"
-            style={{ width: "100%", marginTop: "30px" }}
+            className="button-signin btn btn-primary w-100 mt-2"
             onClick={handleSubmitLogin}
           >
             Sign In

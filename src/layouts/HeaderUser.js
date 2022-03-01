@@ -28,7 +28,7 @@ function HeaderUser() {
       <div className="header-green-top">
         <div>
           <div className="header-green-mid">
-            <h1>GREEN CATS</h1>
+            <h2>GREEN CATS</h2>
             <h4>PGM Recovery Systems</h4>
           </div>
         </div>

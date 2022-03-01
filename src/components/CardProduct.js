@@ -27,7 +27,7 @@ function CardProduct({ product, onAdd, loadProduct }) {
 
   return (
     <>
-      <div className="card" style={{ width: "20%" }}>
+      <div className=" card-product card" style={{ width: "20%" }}>
         <img src={product.productImg} alt="" />
 
         <p>BRAND: {product.brand}</p>

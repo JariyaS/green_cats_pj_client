@@ -24,7 +24,7 @@ a {
   font-size: 1em;
 }
 
-h1 {
+h2 {
   text-shadow: 2px 2px rgb(100, 100, 100);
 }
 
@@ -45,14 +45,9 @@ h4 {
   margin-top: 30px;
 }
 
-.metal-price {
-  margin-top: 30px;
-}
-
 .header-green-top {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
 }
 
 .link-header {
@@ -156,4 +151,11 @@ h4 {
 }
 .quotation-details2 {
   margin-left: 25%;
+}
+.metal-item {
+  margin-bottom: 0.5rem;
+}
+
+.card-product > * {
+  text-align: center;
 }

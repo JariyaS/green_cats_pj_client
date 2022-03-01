@@ -1,11 +1,10 @@
 .login-outer {
-  height: 86vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: green;
   margin-bottom: 30px;
-  margin-top: 20px;
 }
 
 .login-mid {
@@ -19,7 +18,7 @@
 
 .login-body {
   width: 400px;
-  margin-top: 20px;
+  margin-top: 10px;
   border: solid 1px;
   box-shadow: 10px 10px 5px #aaaaaa;
   border-radius: 10px;

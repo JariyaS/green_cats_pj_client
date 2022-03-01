@@ -3,7 +3,7 @@ import React from "react";
 
 function Pagination({ productsPerpage, totalProducts, paginate }) {
   const pageNumber = [];
-  for (let i = 1; i < Math.ceil(totalProducts / productsPerpage); i++) {
+  for (let i = 1; i <= Math.ceil(totalProducts / productsPerpage); i++) {
     pageNumber.push(i);
   }
 

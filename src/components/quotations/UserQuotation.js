@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "../../config/axios";
-
+import Pagination from "../../layouts/Pagination";
 import { AuthContext } from "../../contexts/AuthContext";
 
 function UserQuotation() {
   const { user } = useContext(AuthContext);
   const [quotations, setQuotations] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [userQuoPerPage, setUserQuoPerPage] = useState(5);
 
   useEffect(() => {
     console.log(user.id);
@@ -21,12 +23,23 @@ function UserQuotation() {
   }, [user]);
 
   // console.log(user.id);
+  const paginate = (number) => setCurrentPage(number);
+
+  const indexOfLastUserQuo = currentPage * userQuoPerPage;
+  const indexOfFirstQuo = indexOfLastUserQuo - userQuoPerPage;
+  const currentUserQuo = quotations.slice(indexOfFirstQuo, indexOfLastUserQuo);
 
   return (
     <div>
       <div>
+        <Pagination
+          itemsPerpage={userQuoPerPage}
+          totalItems={quotations.length}
+          paginate={paginate}
+        />
+
         <div className="userQuotation-card row">
-          {quotations.map((item) => (
+          {currentUserQuo.map((item) => (
             <div className="col-md-12  p-3 card">
               <div>
                 <p>

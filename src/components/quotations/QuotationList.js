@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-import Quotation from "./Quotation";
+// import Quotation from "./Quotation";
 import axios from "axios";
 import QuotationDetails from "./QuotationDetails";
+import Pagination from "../../layouts/Pagination";
 
 function QuotationList() {
   const [quotations, setQuotations] = useState([]);
   const [filteredQuotations, setFilteredQuotations] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredQuoPerPage, setFilterQuoPerPage] = useState(5);
+
   function loadQuotation() {
     axios
       .get("/quotations")
@@ -36,6 +40,15 @@ function QuotationList() {
     );
   };
 
+  const paginate = (number) => setCurrentPage(number);
+
+  const indexOfLastProduct = currentPage * filteredQuoPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - filteredQuoPerPage;
+  const currentFilteredQuo = filteredQuotations.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   return (
     <div>
       <div className="quotation-list p-3 ">
@@ -45,10 +58,18 @@ function QuotationList() {
         <button className="btn btn-info" onClick={handleDeliveredClick}>
           Delivered
         </button>
+        <div>
+          <Pagination
+            itemsPerpage={filteredQuoPerPage}
+            totalItems={filteredQuotations.length}
+            paginate={paginate}
+          />
+        </div>
+
         {/* {JSON.stringify(quotations)} */}
         {quotations &&
-          filteredQuotations.map((item) => (
-            <div key={item.id} className="col-md-9  p-3 card">
+          currentFilteredQuo.map((item) => (
+            <div key={item.id} className="col-9  p-3 card">
               <QuotationDetails
                 quotation={item}
                 loadQuotation={loadQuotation}

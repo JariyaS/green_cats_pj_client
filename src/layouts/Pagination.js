@@ -1,9 +1,8 @@
-import e from "cors";
 import React from "react";
 
-function Pagination({ productsPerpage, totalProducts, paginate }) {
+function Pagination({ itemsPerpage, totalItems, paginate }) {
   const pageNumber = [];
-  for (let i = 1; i <= Math.ceil(totalProducts / productsPerpage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerpage); i++) {
     pageNumber.push(i);
   }
 

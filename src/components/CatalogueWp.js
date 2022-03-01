@@ -38,8 +38,8 @@ function CatalogueWp() {
           ))}
         </div>
         <Pagination
-          productsPerpage={productsPerPage}
-          totalProducts={product.length}
+          itemsPerpage={productsPerPage}
+          totalItems={product.length}
           paginate={paginate}
         />
       </div>
